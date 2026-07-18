@@ -40,6 +40,8 @@ func _unhandled_input(event: InputEvent) -> void:
 			else:
 				playing = false
 				tally_score()
+	elif event.is_action_pressed("Reset"):
+		get_tree().reload_current_scene()
 
 func init_target() -> void:
 	randomize_target()

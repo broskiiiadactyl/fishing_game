@@ -2,8 +2,8 @@
 
 importer="texture"
 type="CompressedTexture2D"
-uid="uid://dktc5damsl27l"
-path.s3tc="res://.godot/imported/arrow_s.svg-a840e6a1cfdd1795e44b4b9077ca1e69.s3tc.ctex"
+uid="uid://cwm534278ndsf"
+path.s3tc="res://.godot/imported/button_square_wide_highlight.svg-71665f9553c7e1080c48e55164499473.s3tc.ctex"
 metadata={
 "imported_formats": ["s3tc_bptc"],
 "vram_texture": true
@@ -11,8 +11,8 @@ metadata={
 
 [deps]
 
-source_file="res://Assets/Random/arrow_s.svg"
-dest_files=["res://.godot/imported/arrow_s.svg-a840e6a1cfdd1795e44b4b9077ca1e69.s3tc.ctex"]
+source_file="res://Assets/Random/button_square_wide_highlight.svg"
+dest_files=["res://.godot/imported/button_square_wide_highlight.svg-71665f9553c7e1080c48e55164499473.s3tc.ctex"]
 
 [params]
 
