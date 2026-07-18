@@ -1,9 +1,9 @@
-res://Main/main.tscn
-res://Main/main.gd
-res://Main/main2.tscn
-res://Main/main2.gd
-res://functional/spawner.gd
 res://functional/bobber.tscn
 res://functional/bobber.gd
-res://functional/fishbox.tscn
+res://Main/main2.tscn
+res://functional/target_1.gd
+res://functional/target_2.gd
+res://functional/target_3.gd
+res://Main/main2.gd
 res://functional/fishbox.gd
+res://functional/fishbox.tscn

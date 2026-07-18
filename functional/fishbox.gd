@@ -41,9 +41,13 @@ func init_target(diff : float, spd : float) -> void:
 	randomize_target()
 
 func randomize_target() -> void:
-	var L : float = randf_range(boundL, boundR - difficulty)
-	var R : float = randf_range(L + difficulty, boundR)
-	var width : float = (R - L) / 2
+	var diff : float = 1/difficulty
+	var L : float = randf_range(boundL, boundR - (diff*2))
+	#var R : float = randf_range(L + diff, boundR)
+	#var width : float = (R - L) / 2
+	var width := diff
+	
+	print("width: ", width)
 	
 	target_coll.shape.size.x = width
 	target_coll.global_position.x = L + width

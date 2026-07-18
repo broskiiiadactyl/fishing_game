@@ -7,6 +7,7 @@ var difficulty : float = 1.0
 var direction : float = 1.0
 var speed_mult : float = 0.05
 var count : int = 3
+var lives : int = 3
 
 enum gamestate {START, BOBBER, FISHING, SCORE, LOSE}
 var active_state = gamestate.START
@@ -16,6 +17,7 @@ var active_state = gamestate.START
 @onready var spawner := %FishSpawner
 
 @onready var intro : Label = %Intro
+@onready var phrases : Label = %Phrases
 
 # Called when the node enters the scene tree for the first time.
 func _ready() -> void:
@@ -32,7 +34,7 @@ func _physics_process(_delta: float) -> void:
 				vis = true
 		gamestate.FISHING:
 			if not vis:
-				fishbox.init_target(difficulty, speed_mult)
+				fishbox.init_target(difficulty, difficulty/35)
 				count = 3
 				vis = true
 			if count <= 0:
@@ -91,7 +93,11 @@ func _unhandled_input(event: InputEvent) -> void:
 				print("start")
 				set_active(gamestate.BOBBER)
 			gamestate.BOBBER:
-				if bobber.check_target():
+				var check = bobber.check_target()
+				if check:
+					print("check: ", check)
+					difficulty = check
+					bobber.stop()
 					set_active(gamestate.FISHING)
 					vis = false
 			gamestate.FISHING:
@@ -116,8 +122,29 @@ func add_fish() -> void:
 	spawner.global_position.y += .25
 
 func miss() -> void:
-	set_active(gamestate.START)
-	vis = false
+	if lives <= 0:
+		set_active(gamestate.START)
+		vis = false
+	else:
+		play_phrase("miss")
+		set_active(gamestate.BOBBER)
+		lives -= 1
+
+func play_phrase(phrase : String) -> void:
+	match phrase:
+		"miss":
+			phrases.text = "MISS!"
+			phrases.visible = true
+			await get_tree().create_timer(1.0).timeout
+			phrases.visible = false
+		"small":
+			pass
+		"med":
+			pass
+		"large":
+			pass
+		_:
+			pass
 
 func tally_score() -> void:
 	#take some score amount and multiply it by number of successes

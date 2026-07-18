@@ -113,9 +113,6 @@ transform = Transform3D(0.35355338, 0, -0.35355338, 0, 0.5, 0, 0.35355338, 0, 0.
 [node name="club-red2" parent="." unique_id=50809243 instance=ExtResource("8_3u84q")]
 transform = Transform3D(-1.4210855e-14, 0.4999999, 0.86602545, -1.3076621e-07, -0.86602545, 0.4999999, 1, -1.13246855e-07, 6.5383105e-08, -0.6758499, 3.262594, -0.5308095)
 
-[node name="fish" parent="." unique_id=1691067368 instance=ExtResource("6_uo6lo")]
-transform = Transform3D(-8.742278e-08, 0, 2, 0, 2, 0, -2, 0, -8.742278e-08, -3.0309372, 1.0095183, 0)
-
 [node name="Fishbox" parent="." unique_id=569043876 instance=ExtResource("7_ewly5")]
 unique_name_in_owner = true
 process_mode = 4
