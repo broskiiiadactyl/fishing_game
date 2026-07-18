@@ -1,0 +1,7 @@
+[gd_scene format=3 uid="uid://dwene38xdndcn"]
+
+[ext_resource type="PackedScene" uid="uid://brt5ga58yavni" path="res://Characters/character_medium.tscn" id="1_rnt6p"]
+
+[node name="Fisher" type="Node3D" unique_id=737313000]
+
+[node name="characterMedium" parent="." unique_id=808657936 instance=ExtResource("1_rnt6p")]

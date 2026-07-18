@@ -1,0 +1,185 @@
+[gd_scene format=3 uid="uid://gdinqxu72ida"]
+
+[ext_resource type="PackedScene" uid="uid://k3qhprlnca6m" path="res://functional/spawner.tscn" id="1_2w1kt"]
+[ext_resource type="Script" uid="uid://da2bt0dldg47k" path="res://Main/main.gd" id="1_k3v36"]
+[ext_resource type="Texture2D" uid="uid://dgli1imr6eaj" path="res://Assets/Skyboxes/skybox-alien.png" id="1_qvhan"]
+[ext_resource type="Texture2D" uid="uid://cdwofkv42f20u" path="res://Assets/Random/button_square_highlight.svg" id="3_ib3t1"]
+[ext_resource type="PackedScene" uid="uid://b6a4n6crny4kk" path="res://Assets/Fish/fish.fbx" id="4_eunhr"]
+[ext_resource type="Texture2D" uid="uid://dktc5damsl27l" path="res://Assets/Random/arrow_s.svg" id="4_f6fdm"]
+[ext_resource type="PackedScene" uid="uid://dwene38xdndcn" path="res://functional/fisher.tscn" id="5_k3v36"]
+[ext_resource type="PackedScene" uid="uid://c6lj7q0xa5qr7" path="res://Assets/Random/club-red.glb" id="6_liyct"]
+
+[sub_resource type="PanoramaSkyMaterial" id="PanoramaSkyMaterial_eunhr"]
+panorama = ExtResource("1_qvhan")
+
+[sub_resource type="Sky" id="Sky_qvhan"]
+sky_material = SubResource("PanoramaSkyMaterial_eunhr")
+
+[sub_resource type="Environment" id="Environment_eunhr"]
+background_mode = 2
+sky = SubResource("Sky_qvhan")
+tonemap_mode = 2
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_rj11h"]
+size = Vector2(15.780823, 22.888885)
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_qac2q"]
+size = Vector2(2.6301422, 20)
+
+[sub_resource type="LabelSettings" id="LabelSettings_f6fdm"]
+font_color = Color(0, 0, 0, 1)
+
+[sub_resource type="LabelSettings" id="LabelSettings_rj11h"]
+font_size = 48
+font_color = Color(0, 0, 0, 1)
+
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_eunhr"]
+albedo_color = Color(0.15187025, 0.41848153, 0.60899806, 1)
+
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_k3v36"]
+albedo_color = Color(0.3573012, 0.4823364, 0.19775409, 1)
+
+[node name="Main" type="Node3D" unique_id=354773583]
+script = ExtResource("1_k3v36")
+
+[node name="WorldEnvironment" type="WorldEnvironment" parent="." unique_id=1306213237]
+environment = SubResource("Environment_eunhr")
+
+[node name="DirectionalLight3D" type="DirectionalLight3D" parent="." unique_id=1143836784]
+transform = Transform3D(1, 0, 0, 0, 0.7071068, 0.7071068, 0, -0.7071068, 0.7071068, 0, 31.613934, 0)
+shadow_enabled = true
+sky_mode = 2
+
+[node name="Camera3D" type="Camera3D" parent="." unique_id=768908120]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 3.068, 5)
+visible = false
+
+[node name="UI" type="Control" parent="Camera3D" unique_id=21165286]
+process_mode = 4
+layout_mode = 3
+anchors_preset = 0
+offset_right = 1152.0
+offset_bottom = 648.0
+
+[node name="TargetUI" type="Control" parent="Camera3D/UI" unique_id=1711069571]
+unique_name_in_owner = true
+anchors_preset = 0
+offset_right = 40.0
+offset_bottom = 40.0
+
+[node name="TargetArea" type="ColorRect" parent="Camera3D/UI/TargetUI" unique_id=1664912388]
+unique_name_in_owner = true
+layout_mode = 0
+offset_left = 192.0
+offset_top = 305.0
+offset_right = 367.0
+offset_bottom = 356.0
+color = Color(1, 1, 1, 0)
+
+[node name="Target" type="Area2D" parent="Camera3D/UI/TargetUI" unique_id=322521017]
+unique_name_in_owner = true
+process_mode = 3
+position = Vector2(277.00003, 331.00003)
+scale = Vector2(2.28125, 2.2499998)
+
+[node name="ColorRect" type="ColorRect" parent="Camera3D/UI/TargetUI/Target" unique_id=1929983774]
+unique_name_in_owner = true
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -7.01371
+offset_top = -12.000015
+offset_right = 8.767113
+offset_bottom = 11.555527
+grow_horizontal = 2
+grow_vertical = 2
+color = Color(0, 0.44313726, 0, 1)
+metadata/_edit_use_anchors_ = true
+
+[node name="TargetColl" type="CollisionShape2D" parent="Camera3D/UI/TargetUI/Target" unique_id=749357718]
+unique_name_in_owner = true
+process_mode = 3
+position = Vector2(0.87670135, 0.1111145)
+scale = Vector2(1, 0.9999999)
+shape = SubResource("RectangleShape2D_rj11h")
+
+[node name="Box" type="Sprite2D" parent="Camera3D/UI/TargetUI" unique_id=1217878996]
+unique_name_in_owner = true
+position = Vector2(279, 330)
+scale = Vector2(3.390625, 1)
+texture = ExtResource("3_ib3t1")
+
+[node name="Arrow" type="Sprite2D" parent="Camera3D/UI/TargetUI" unique_id=1251599220]
+unique_name_in_owner = true
+process_mode = 3
+position = Vector2(277, 267)
+scale = Vector2(2.28125, 2.25)
+texture = ExtResource("4_f6fdm")
+
+[node name="ArrowArea" type="Area2D" parent="Camera3D/UI/TargetUI/Arrow" unique_id=727802458]
+unique_name_in_owner = true
+position = Vector2(0, 28.000038)
+
+[node name="ArrowColl" type="CollisionShape2D" parent="Camera3D/UI/TargetUI/Arrow/ArrowArea" unique_id=2084225867]
+unique_name_in_owner = true
+process_mode = 3
+shape = SubResource("RectangleShape2D_qac2q")
+
+[node name="Phrases" type="Label" parent="Camera3D/UI" unique_id=1277515402]
+unique_name_in_owner = true
+layout_mode = 0
+offset_left = 670.0
+offset_top = 155.0
+offset_right = 775.0
+offset_bottom = 184.0
+text = "placeholder"
+label_settings = SubResource("LabelSettings_f6fdm")
+
+[node name="Intro" type="Label" parent="Camera3D/UI" unique_id=2040135412]
+unique_name_in_owner = true
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -296.0
+offset_top = -107.5
+offset_right = 296.0
+offset_bottom = 107.5
+grow_horizontal = 2
+grow_vertical = 2
+text = "Click to start"
+label_settings = SubResource("LabelSettings_rj11h")
+horizontal_alignment = 1
+vertical_alignment = 1
+
+[node name="CSGBox3D" type="CSGBox3D" parent="." unique_id=1206046566]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, -0.5, 0)
+size = Vector3(100, 1, 2.5)
+material = SubResource("StandardMaterial3D_eunhr")
+
+[node name="CSGBox3D2" type="CSGBox3D" parent="." unique_id=1838954807]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 25.455933, 0.37636793, 0)
+size = Vector3(49.088135, 1, 2.5)
+material = SubResource("StandardMaterial3D_k3v36")
+
+[node name="FishSpawner" parent="." unique_id=1093584567 instance=ExtResource("1_2w1kt")]
+unique_name_in_owner = true
+transform = Transform3D(-4.371139e-08, 0, 1, 0, 1, 0, -1, 0, -4.371139e-08, 5.2599072, 0.93467116, 0)
+spawn_scene = ExtResource("4_eunhr")
+spawn_count = 0
+spawn_range = Vector3(0.1, 0.1, 0.1)
+
+[node name="Fisher" parent="." unique_id=737313000 instance=ExtResource("5_k3v36")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 1.4969513, 0.84737146, 0)
+
+[node name="club-red2" parent="." unique_id=50809243 instance=ExtResource("6_liyct")]
+transform = Transform3D(-4.3343434e-08, 0.9999998, 1.7320509, -2.269186e-07, -1.7320509, 0.9999998, 2, -1.7484557e-07, 1.509958e-07, -0.21267796, 3.2338214, 0)
+
+[node name="fish" parent="." unique_id=1691067368 instance=ExtResource("4_eunhr")]
+transform = Transform3D(-8.742278e-08, 0, 2, 0, 2, 0, -2, 0, -8.742278e-08, -2.759, 0.07088578, 0)
+
+[node name="PhrasesTimer" type="Timer" parent="." unique_id=1389536808]

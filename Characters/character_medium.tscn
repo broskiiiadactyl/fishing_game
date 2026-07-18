@@ -1,0 +1,12 @@
+[gd_scene format=3 uid="uid://brt5ga58yavni"]
+
+[ext_resource type="PackedScene" uid="uid://d1axxewdf8cah" path="res://Characters/characterMedium.fbx" id="1_hf7j7"]
+[ext_resource type="Texture2D" uid="uid://r4dki5ntfjq2" path="res://Characters/humanMaleA.png" id="2_udm3v"]
+
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_1uey5"]
+albedo_texture = ExtResource("2_udm3v")
+
+[node name="characterMedium" unique_id=808657936 instance=ExtResource("1_hf7j7")]
+
+[node name="characterMedium" parent="Root/Skeleton3D" parent_id_path=PackedInt32Array(1509200360) index="0" unique_id=868966284]
+surface_material_override/0 = SubResource("StandardMaterial3D_1uey5")
