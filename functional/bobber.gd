@@ -1,13 +1,6 @@
 extends Node3D
 
-var vis := false
-var playing := false
-var score : int = 0
-var fish : int = 0
 var difficulty : float = 1.0
-var life : int = 3
-
-@onready var bobber := %Fishbox
 
 @onready var target : StaticBody3D = %Target
 @onready var target_coll : CollisionShape3D = %TargetColl
@@ -29,34 +22,13 @@ var life : int = 3
 
 # Called when the node enters the scene tree for the first time.
 func _ready() -> void:
-	bobber.visible = not vis
-	intro.visible = not vis
-	print(boundL, "\n", boundR)
+	pass
 
 func _physics_process(_delta: float) -> void:
-	#print(arrow_check.global_position.x)
-	if vis and playing:
-		track_marker()
-	
-	if life <= 0:
-		#emit signal to main that game is over
-		pass
-
-#when left mouse button is pressed
-func _input(event: InputEvent) -> void:
-	if event.is_action_pressed("LMB"):
-		if check_target():
-			#emit signal to main to start fishbox and pause bobber
-			randomize_target()
-		else:
-			lose_life()
-	elif event.is_action_pressed("Reset"):
-		get_tree().reload_current_scene()
+	track_marker()
 
 func init_target() -> void:
 	randomize_target()
-	vis = true
-	playing = true
 
 func randomize_target() -> void:
 	var L : float = randf_range(boundL, boundR - difficulty)
@@ -69,30 +41,9 @@ func randomize_target() -> void:
 	target_mesh.global_position.x = L + width
 
 func track_marker() -> void:
-	#code to track mouse position and move marker
-	#only if playing is true
+	arrow.global_position.x = (get_viewport().get_mouse_position().x * 0.006077) - 3.5
+	print(arrow.global_position.x)
 	pass
 
 func check_target() -> bool:
-	#return arrow_area.overlaps_body(target)
-	return true
-
-func add_fish() -> void:
-	fish += 1
-	%FishSpawner.spawn_count = 1
-	%FishSpawner.spawn_objects()
-	%FishSpawner.global_position.y += .25
-
-func lose_life() -> void:
-	#lose a life point on miss
-	pass
-
-func final_score() -> void:
-	#display final score
-	pass
-
-func reset() -> void:
-	#flip vis to false
-	#clear score
-	#clear fish
-	pass
+	return arrow_area.overlaps_body(target)

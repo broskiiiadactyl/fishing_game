@@ -5,6 +5,8 @@ var difficulty : float = 1.0
 var direction : float = 1.0
 var speed_mult : float = 0.05
 
+@onready var counter := %Counter
+
 @onready var target : StaticBody3D = %Target
 @onready var target_coll : CollisionShape3D = %TargetColl
 @onready var target_mesh : MeshInstance3D = %TargetMesh
@@ -22,8 +24,6 @@ var speed_mult : float = 0.05
 @onready var arrow_check : Marker3D = %ArrowBoundCheck
 @onready var arrow_start : Vector3 = arrow.global_position
 
-@onready var intro : Label = %Intro
-
 # Called when the node enters the scene tree for the first time.
 func _ready() -> void:
 	pass
@@ -34,8 +34,10 @@ func _physics_process(_delta: float) -> void:
 		move_marker()
 		check_marker_bounds()
 
-func init_target() -> void:
+func init_target(diff : float, spd : float) -> void:
 	arrow.global_position = arrow_start
+	difficulty = diff
+	speed_mult = spd
 	randomize_target()
 
 func randomize_target() -> void:

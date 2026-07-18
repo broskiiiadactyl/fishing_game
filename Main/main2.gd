@@ -1,18 +1,19 @@
 extends Node3D
 
 var vis := false
-var playing := false
 var score : int = 0
 var fish : int = 0
 var difficulty : float = 1.0
 var direction : float = 1.0
-var speed_mult : float = 0.01
+var speed_mult : float = 0.05
+var count : int = 3
 
 enum gamestate {START, BOBBER, FISHING, SCORE, LOSE}
 var active_state = gamestate.START
 
 @onready var fishbox := %Fishbox
 @onready var bobber := %Bobber
+@onready var spawner := %FishSpawner
 
 @onready var intro : Label = %Intro
 
@@ -26,15 +27,17 @@ func _physics_process(_delta: float) -> void:
 		gamestate.START:
 			intro.visible = true
 		gamestate.BOBBER:
-			pass
+			if not vis:
+				bobber.init_target()
+				vis = true
 		gamestate.FISHING:
 			if not vis:
-				intro.visible = false
-				bobber.process_mode = Node.PROCESS_MODE_DISABLED
-				fishbox.process_mode = Node.PROCESS_MODE_ALWAYS
-				fishbox.init_target()
-				fishbox.visible = true
+				fishbox.init_target(difficulty, speed_mult)
+				count = 3
 				vis = true
+			if count <= 0:
+				set_active(gamestate.BOBBER)
+			fishbox.counter.text = str(count)
 		gamestate.SCORE:
 			pass
 		gamestate.LOSE:
@@ -85,11 +88,14 @@ func _unhandled_input(event: InputEvent) -> void:
 		match active_state:
 			gamestate.START:
 				print("start")
-				set_active(gamestate.FISHING)
+				set_active(gamestate.BOBBER)
 			gamestate.BOBBER:
-				pass
+				if bobber.check_target():
+					set_active(gamestate.FISHING)
+					vis = false
 			gamestate.FISHING:
 				if fishbox.check_target():
+					count -= 1
 					add_fish()
 					fishbox.randomize_target()
 				else:
@@ -104,12 +110,13 @@ func _unhandled_input(event: InputEvent) -> void:
 
 func add_fish() -> void:
 	fish += 1
-	%FishSpawner.spawn_count = 1
-	%FishSpawner.spawn_objects()
-	%FishSpawner.global_position.y += .25
+	spawner.spawn_count = 1
+	spawner.spawn_objects()
+	spawner.global_position.y += .25
 
 func miss() -> void:
 	set_active(gamestate.START)
+	vis = false
 
 func tally_score() -> void:
 	#take some score amount and multiply it by number of successes

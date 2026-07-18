@@ -80,3 +80,8 @@ unique_name_in_owner = true
 unique_name_in_owner = true
 transform = Transform3D(1, 0, 0, 0, 0.5, 0, 0, 0, 1, 0, 0, 0)
 shape = SubResource("BoxShape3D_arisb")
+
+[node name="Counter" type="Label3D" parent="." unique_id=1965436477]
+unique_name_in_owner = true
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.9325827, -0.21637264, 0)
+text = "0"
