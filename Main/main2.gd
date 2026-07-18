@@ -36,6 +36,7 @@ func _physics_process(_delta: float) -> void:
 				count = 3
 				vis = true
 			if count <= 0:
+				vis = false
 				set_active(gamestate.BOBBER)
 			fishbox.counter.text = str(count)
 		gamestate.SCORE:
