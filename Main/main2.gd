@@ -14,29 +14,12 @@ var active_state = gamestate.START
 @onready var fishbox := %Fishbox
 @onready var bobber := %Bobber
 
-@onready var target : StaticBody3D = fishbox.get_node("%Target")
-@onready var target_coll : CollisionShape3D = fishbox.get_node("%TargetColl")
-@onready var target_mesh : MeshInstance3D = fishbox.get_node("%TargetMesh")
-@onready var target_check : Marker3D = fishbox.get_node("%TargetBoundCheck")
-
-@onready var target_area : MeshInstance3D = fishbox.get_node("%TargetBoundBox")
-@onready var target_area_origin : Vector3 = target_area.global_position
-@onready var boundL : float = target_area_origin.x - (target_area.get_aabb().size.x / 2) + 0.1
-@onready var boundR : float = target_area_origin.x + (target_area.get_aabb().size.x / 2) - 0.1
-
-@onready var arrow : StaticBody3D = fishbox.get_node("%Arrow")
-@onready var arrow_coll : CollisionShape3D = fishbox.get_node("%ArrowColl")
-@onready var arrow_mesh : MeshInstance3D = fishbox.get_node("%ArrowMesh")
-@onready var arrow_area : Area3D = fishbox.get_node("%ArrowArea")
-@onready var arrow_check : Marker3D = fishbox.get_node("%ArrowBoundCheck")
-
 @onready var intro : Label = %Intro
 
 # Called when the node enters the scene tree for the first time.
 func _ready() -> void:
 	fishbox.visible = vis
 	intro.visible = not vis
-	print(boundL, "\n", boundR)
 
 func _physics_process(_delta: float) -> void:
 	match active_state:
