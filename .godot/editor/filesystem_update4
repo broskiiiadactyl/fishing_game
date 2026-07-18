@@ -2,3 +2,8 @@ res://Main/main.tscn
 res://Main/main.gd
 res://Main/main2.tscn
 res://Main/main2.gd
+res://functional/spawner.gd
+res://functional/bobber.tscn
+res://functional/bobber.gd
+res://functional/fishbox.tscn
+res://functional/fishbox.gd

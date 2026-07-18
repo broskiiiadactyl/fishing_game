@@ -39,7 +39,7 @@ func spawn_objects() -> void:
 		#print(instance.name, " spawned at ", pos)
 		get_parent().add_child(instance)
 		instance.global_position = pos
-		instance.scale *= 2.0
+		instance.rotation.y = self.rotation.y
 		
 func wait(seconds: float) -> void:
 	await get_tree().create_timer(seconds).timeout

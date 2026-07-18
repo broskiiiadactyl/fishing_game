@@ -1,0 +1,76 @@
+[gd_scene format=3 uid="uid://b8p66cpmxdq87"]
+
+[ext_resource type="Texture2D" uid="uid://cwm534278ndsf" path="res://Assets/Random/button_square_wide_highlight.svg" id="1_7rxri"]
+[ext_resource type="Script" uid="uid://bo6me4ojr4787" path="res://functional/bobber.gd" id="1_vq721"]
+[ext_resource type="Texture2D" uid="uid://c6uypwbd8lune" path="res://Assets/Random/circle_rings_c.png" id="2_vq721"]
+[ext_resource type="PackedScene" uid="uid://b0iyyky2guk47" path="res://Assets/Random/fishing_floater.gltf" id="3_frc0s"]
+
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_ewly5"]
+transparency = 1
+albedo_color = Color(1, 1, 1, 0)
+albedo_texture = ExtResource("1_7rxri")
+uv1_scale = Vector3(3, 2.01, 2.01)
+
+[sub_resource type="BoxMesh" id="BoxMesh_vq1wr"]
+material = SubResource("StandardMaterial3D_ewly5")
+size = Vector3(8, 0.5, 1)
+
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_mnbj8"]
+transparency = 1
+albedo_color = Color(3.3691526e-07, 0.15448049, 0.42231467, 1)
+albedo_texture = ExtResource("2_vq721")
+uv1_scale = Vector3(2.59, 2.59, 2.59)
+uv1_offset = Vector3(0.065, -0.18, 0)
+texture_repeat = false
+
+[sub_resource type="BoxMesh" id="BoxMesh_gjrp1"]
+material = SubResource("StandardMaterial3D_mnbj8")
+size = Vector3(1, 0.45, 0.9)
+
+[sub_resource type="BoxShape3D" id="BoxShape3D_7yr17"]
+size = Vector3(0.074, 0.4, 0.075)
+
+[sub_resource type="BoxShape3D" id="BoxShape3D_arisb"]
+size = Vector3(0.074, 0.4, 0.075)
+
+[node name="Bobber" type="Node3D" unique_id=569043876]
+script = ExtResource("1_vq721")
+
+[node name="TargetBoundBox" type="MeshInstance3D" parent="." unique_id=2033035834]
+unique_name_in_owner = true
+mesh = SubResource("BoxMesh_vq1wr")
+
+[node name="Target" type="StaticBody3D" parent="." unique_id=1197934443]
+unique_name_in_owner = true
+
+[node name="TargetMesh" type="MeshInstance3D" parent="Target" unique_id=1476357221]
+unique_name_in_owner = true
+mesh = SubResource("BoxMesh_gjrp1")
+
+[node name="TargetColl" type="CollisionShape3D" parent="Target" unique_id=836179640]
+unique_name_in_owner = true
+shape = SubResource("BoxShape3D_7yr17")
+
+[node name="TargetBoundCheck" type="Marker3D" parent="Target" unique_id=582266542]
+unique_name_in_owner = true
+
+[node name="Arrow" type="StaticBody3D" parent="." unique_id=86874016]
+unique_name_in_owner = true
+
+[node name="bobby" parent="Arrow" unique_id=2133328323 instance=ExtResource("3_frc0s")]
+unique_name_in_owner = true
+transform = Transform3D(0.5, 0, 0, 0, 0.5, 0, 0, 0, 0.5, 0, 0.10445216, 0.49220276)
+
+[node name="ArrowBoundCheck" type="Marker3D" parent="Arrow" unique_id=2145042246]
+unique_name_in_owner = true
+
+[node name="ArrowArea" type="Area3D" parent="Arrow" unique_id=629306085]
+unique_name_in_owner = true
+
+[node name="ArrowColl" type="CollisionShape3D" parent="Arrow/ArrowArea" unique_id=1988198761]
+unique_name_in_owner = true
+shape = SubResource("BoxShape3D_arisb")
+
+[node name="SpawnTimer" type="Timer" parent="." unique_id=475137494]
+unique_name_in_owner = true
+wait_time = 1.5
