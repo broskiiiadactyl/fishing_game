@@ -1,17 +1,31 @@
 [gd_scene format=3 uid="uid://bgrmw4gk4igml"]
 
 [ext_resource type="Script" uid="uid://bf3yywq3x0hyn" path="res://Main/main2.gd" id="1_mnbj8"]
-[ext_resource type="Texture2D" uid="uid://dgli1imr6eaj" path="res://Assets/Skyboxes/skybox-alien.png" id="2_3wjc4"]
+[ext_resource type="FontFile" uid="uid://d2i28ihyq8fnf" path="res://Assets/Random/Kenney Future Narrow.ttf" id="3_1usfv"]
 [ext_resource type="FontFile" uid="uid://cm15q1gougcsw" path="res://Assets/Random/Kenney Blocks.ttf" id="3_3wjc4"]
-[ext_resource type="PackedScene" uid="uid://dms8qdggvfo84" path="res://functional/fish.tscn" id="4_mnbj8"]
 [ext_resource type="PackedScene" uid="uid://k3qhprlnca6m" path="res://functional/spawner.tscn" id="5_tha2k"]
+[ext_resource type="PackedScene" uid="uid://besxfc02wp5e0" path="res://functional/FisherRogue.tscn" id="6_4a30g"]
 [ext_resource type="PackedScene" uid="uid://dwene38xdndcn" path="res://functional/fisher.tscn" id="7_2tca2"]
 [ext_resource type="PackedScene" uid="uid://bl3bxeyhad5sa" path="res://functional/fishbox.tscn" id="7_ewly5"]
 [ext_resource type="PackedScene" uid="uid://c6lj7q0xa5qr7" path="res://Assets/Random/club-red.glb" id="8_3u84q"]
 [ext_resource type="PackedScene" uid="uid://b8p66cpmxdq87" path="res://functional/bobber.tscn" id="8_mnbj8"]
+[ext_resource type="Texture2D" uid="uid://clbvg8l4008vw" path="res://Assets/Skyboxes/skybox-night.png" id="11_1usfv"]
+[ext_resource type="Texture2D" uid="uid://bws1ygjgt0bhp" path="res://Assets/Random/cone_composed_c_noise.png" id="12_844n7"]
+[ext_resource type="PackedScene" uid="uid://bmj6vpdnuuqvr" path="res://Assets/enviro/KayKitNature/Rock_1_J_Color1.gltf" id="12_xdbwp"]
+[ext_resource type="PackedScene" uid="uid://4ev7bhgnrra3" path="res://Assets/enviro/KayKitNature/Rock_1_M_Color1.gltf" id="13_844n7"]
+[ext_resource type="PackedScene" uid="uid://cfh8auxgm673k" path="res://Assets/enviro/KayKitNature/Rock_1_N_Color1.gltf" id="14_er007"]
+[ext_resource type="PackedScene" uid="uid://b8dsgttlo0cxg" path="res://Assets/enviro/KayKitNature/Tree_3_A_Color1.gltf" id="15_tqlhj"]
+[ext_resource type="PackedScene" uid="uid://d334jlrnpc0sw" path="res://Assets/enviro/KayKitNature/Tree_3_C_Color1.gltf" id="16_y1v7m"]
+[ext_resource type="PackedScene" uid="uid://clrpeglcny58d" path="res://Assets/enviro/KayKitNature/Tree_4_B_Color1.gltf" id="17_u6pdb"]
+[ext_resource type="PackedScene" uid="uid://b0dked04d11d2" path="res://Assets/enviro/KayKitNature/Tree_4_C_Color1.gltf" id="18_sojfe"]
+[ext_resource type="PackedScene" uid="uid://dbj2wt7g3c8ev" path="res://Assets/enviro/KayKitNature/Tree_4_A_Color1.gltf" id="19_pmrxv"]
+[ext_resource type="PackedScene" uid="uid://bamlhl8atux8" path="res://Assets/enviro/KayKitNature/Grass_2_D_Color1.gltf" id="20_s1hsn"]
+[ext_resource type="PackedScene" uid="uid://foyiwry1os63" path="res://Assets/enviro/KayKitNature/Bush_1_G_Color1.gltf" id="22_nnf72"]
+[ext_resource type="PackedScene" uid="uid://bipyhqxkeki8r" path="res://Assets/enviro/KayKitNature/Bush_1_E_Color1.gltf" id="23_gh2x6"]
+[ext_resource type="PackedScene" uid="uid://4a2k5n4lc45j" path="res://Assets/enviro/KayKitNature/Bush_1_F_Color1.gltf" id="24_w7j6x"]
 
 [sub_resource type="PanoramaSkyMaterial" id="PanoramaSkyMaterial_eunhr"]
-panorama = ExtResource("2_3wjc4")
+panorama = ExtResource("11_1usfv")
 
 [sub_resource type="Sky" id="Sky_qvhan"]
 sky_material = SubResource("PanoramaSkyMaterial_eunhr")
@@ -22,22 +36,86 @@ sky = SubResource("Sky_qvhan")
 tonemap_mode = 2
 
 [sub_resource type="LabelSettings" id="LabelSettings_f6fdm"]
-font_color = Color(0, 0, 0, 1)
+font = ExtResource("3_1usfv")
+
+[sub_resource type="LabelSettings" id="LabelSettings_xdbwp"]
+font = ExtResource("3_1usfv")
+font_size = 64
 
 [sub_resource type="LabelSettings" id="LabelSettings_rj11h"]
+font = ExtResource("3_1usfv")
+font_size = 120
+
+[sub_resource type="LabelSettings" id="LabelSettings_3wjc4"]
+font = ExtResource("3_3wjc4")
 font_size = 48
-font_color = Color(0, 0, 0, 1)
+
+[sub_resource type="LabelSettings" id="LabelSettings_1usfv"]
+font = ExtResource("3_3wjc4")
+font_size = 24
+font_color = Color(1, 1, 1, 0.42745098)
 
 [sub_resource type="LabelSettings" id="LabelSettings_4a30g"]
 font = ExtResource("3_3wjc4")
-font_size = 24
-font_color = Color(0, 0, 0, 1)
+font_size = 48
+font_color = Color(1, 1, 1, 0.8235294)
+
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_tha2k"]
+albedo_texture = ExtResource("11_1usfv")
+uv1_offset = Vector3(1.225, 0, 0)
+disable_receive_shadows = true
+
+[sub_resource type="QuadMesh" id="QuadMesh_uo6lo"]
+material = SubResource("StandardMaterial3D_tha2k")
+size = Vector2(9, 6)
+
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_xdbwp"]
+transparency = 1
+blend_mode = 1
+albedo_color = Color(0.36078432, 0.2901961, 0.5568628, 1)
+albedo_texture = ExtResource("12_844n7")
+uv1_offset = Vector3(-0.04, 0.295, 0)
+
+[sub_resource type="QuadMesh" id="QuadMesh_844n7"]
+material = SubResource("StandardMaterial3D_xdbwp")
+size = Vector2(10, 10)
+
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_er007"]
+transparency = 1
+albedo_color = Color(0.2901961, 0.21176471, 0.42745098, 0.4627451)
+uv1_offset = Vector3(-0.04, 0.295, 0)
+
+[sub_resource type="QuadMesh" id="QuadMesh_tqlhj"]
+material = SubResource("StandardMaterial3D_er007")
+size = Vector2(9, 6)
+
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_4a30g"]
+albedo_color = Color(0.28627452, 0.39215687, 0.15294118, 1)
+
+[sub_resource type="BoxMesh" id="BoxMesh_1usfv"]
+material = SubResource("StandardMaterial3D_4a30g")
+size = Vector3(10, 1, 2)
+
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_1usfv"]
+albedo_color = Color(0.2863572, 0.39095843, 0.15193978, 1)
+
+[sub_resource type="BoxMesh" id="BoxMesh_tha2k"]
+material = SubResource("StandardMaterial3D_1usfv")
+size = Vector3(10, 1, 2)
+
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_uo6lo"]
+albedo_color = Color(0.15294118, 0.41960785, 0.60784316, 1)
+
+[sub_resource type="BoxMesh" id="BoxMesh_4a30g"]
+material = SubResource("StandardMaterial3D_uo6lo")
+size = Vector3(1, 10, 3)
+
+[sub_resource type="BoxMesh" id="BoxMesh_uo6lo"]
+material = SubResource("StandardMaterial3D_uo6lo")
+size = Vector3(1, 10, 10)
 
 [sub_resource type="StandardMaterial3D" id="StandardMaterial3D_eunhr"]
 albedo_color = Color(0.15187025, 0.41848153, 0.60899806, 1)
-
-[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_k3v36"]
-albedo_color = Color(0.3573012, 0.4823364, 0.19775409, 1)
 
 [sub_resource type="BoxShape3D" id="BoxShape3D_mnbj8"]
 size = Vector3(12.049072, 0.21191406, 1)
@@ -49,16 +127,15 @@ script = ExtResource("1_mnbj8")
 environment = SubResource("Environment_eunhr")
 
 [node name="DirectionalLight3D" type="DirectionalLight3D" parent="." unique_id=1143836784]
-transform = Transform3D(1, 0, 0, 0, 0.7071068, 0.7071068, 0, -0.7071068, 0.7071068, 0, 31.613934, 0)
+transform = Transform3D(1, 0, 0, 0, 0.7040395, 0.7101608, 0, -0.7101608, 0.7040395, 0, 31.613934, 0)
+light_color = Color(0.5028432, 0.34954718, 0.5708878, 1)
 shadow_enabled = true
-sky_mode = 2
 
 [node name="PhrasesTimer" type="Timer" parent="." unique_id=1389536808]
 
 [node name="Camera3D" type="Camera3D" parent="." unique_id=768908120]
 unique_name_in_owner = true
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 3.1633847, 5)
-visible = false
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 3.1633847, 12.507431)
 projection = 1
 size = 4.0
 
@@ -69,14 +146,14 @@ anchors_preset = 0
 offset_right = 1152.0
 offset_bottom = 648.0
 
-[node name="Phrases" type="Label" parent="Camera3D/UI" unique_id=1277515402]
+[node name="PhrasesDNU" type="Label" parent="Camera3D/UI" unique_id=1277515402]
 unique_name_in_owner = true
 visible = false
 layout_mode = 0
-offset_left = 535.0
-offset_top = 157.0
-offset_right = 627.0
-offset_bottom = 180.0
+offset_left = 142.0
+offset_top = 255.0
+offset_right = 267.0
+offset_bottom = 278.0
 text = "placeholder"
 label_settings = SubResource("LabelSettings_f6fdm")
 
@@ -96,99 +173,191 @@ offset_bottom = 107.5
 grow_horizontal = 2
 grow_vertical = 2
 text = "Click to start"
-label_settings = SubResource("LabelSettings_rj11h")
+label_settings = SubResource("LabelSettings_xdbwp")
 horizontal_alignment = 1
 vertical_alignment = 1
 
 [node name="Timeout" type="Label" parent="Camera3D/UI" unique_id=555539949]
 unique_name_in_owner = true
+layout_mode = 1
+anchors_preset = 12
+anchor_top = 1.0
+anchor_right = 1.0
+anchor_bottom = 1.0
+offset_top = -135.0
+offset_right = 25.892944
+grow_horizontal = 2
+grow_vertical = 0
+rotation = -0.3630285
+text = "STOP!"
+label_settings = SubResource("LabelSettings_rj11h")
+horizontal_alignment = 1
+vertical_alignment = 1
+
+[node name="TimerLabel" type="Label" parent="Camera3D/UI" unique_id=2005412946]
+unique_name_in_owner = true
 visible = false
+layout_mode = 1
+anchors_preset = 5
+anchor_left = 0.5
+anchor_right = 0.5
+offset_left = -21.0
+offset_right = 21.0
+offset_bottom = 36.0
+grow_horizontal = 2
+text = "00"
+label_settings = SubResource("LabelSettings_3wjc4")
+horizontal_alignment = 1
+
+[node name="RestartLabel" type="Label" parent="Camera3D/UI" unique_id=362946350]
+unique_name_in_owner = true
+visible = false
+layout_mode = 1
+anchors_preset = 7
+anchor_left = 0.5
+anchor_top = 1.0
+anchor_right = 0.5
+anchor_bottom = 1.0
+offset_left = -536.0
+offset_top = -72.0
+offset_right = -194.0
+grow_horizontal = 2
+grow_vertical = 0
+text = "Press  \"R\"  to  restart"
+label_settings = SubResource("LabelSettings_1usfv")
+horizontal_alignment = 1
+
+[node name="HBoxContainer" type="HBoxContainer" parent="Camera3D/UI" unique_id=1651501559]
 layout_mode = 1
 anchors_preset = 8
 anchor_left = 0.5
 anchor_top = 0.5
 anchor_right = 0.5
 anchor_bottom = 0.5
-offset_left = -296.0
-offset_top = -107.5
-offset_right = 296.0
-offset_bottom = 107.5
+offset_left = -373.0
+offset_top = -123.0
+offset_right = -117.0
+offset_bottom = 25.0
 grow_horizontal = 2
 grow_vertical = 2
-text = "TIME'S UP!"
-label_settings = SubResource("LabelSettings_rj11h")
-horizontal_alignment = 1
-vertical_alignment = 1
 
-[node name="ScoreLabel" type="Label" parent="Camera3D/UI" unique_id=1982827013]
+[node name="Container" type="VBoxContainer" parent="Camera3D/UI/HBoxContainer" unique_id=238599909]
+layout_mode = 2
+
+[node name="ScoreLabel" type="Label" parent="Camera3D/UI/HBoxContainer/Container" unique_id=1982827013]
 unique_name_in_owner = true
 visible = false
-layout_mode = 0
-offset_left = 363.0
-offset_right = 471.0
-offset_bottom = 36.0
+layout_mode = 2
 text = "SCORE: "
 label_settings = SubResource("LabelSettings_4a30g")
 
-[node name="ScoreNum" type="Label" parent="Camera3D/UI" unique_id=1218443104]
+[node name="FishLabel" type="Label" parent="Camera3D/UI/HBoxContainer/Container" unique_id=253122128]
 unique_name_in_owner = true
 visible = false
-layout_mode = 0
-offset_left = 469.0
-offset_right = 529.0
-offset_bottom = 36.0
+layout_mode = 2
+text = "FISH: "
+label_settings = SubResource("LabelSettings_4a30g")
+
+[node name="Container2" type="VBoxContainer" parent="Camera3D/UI/HBoxContainer" unique_id=148283531]
+layout_mode = 2
+
+[node name="ScoreNum" type="Label" parent="Camera3D/UI/HBoxContainer/Container2" unique_id=1218443104]
+unique_name_in_owner = true
+visible = false
+layout_mode = 2
 text = "0"
 label_settings = SubResource("LabelSettings_4a30g")
 
-[node name="TimerLabel" type="Label" parent="Camera3D/UI" unique_id=2005412946]
+[node name="FishNum" type="Label" parent="Camera3D/UI/HBoxContainer/Container2" unique_id=1382195702]
 unique_name_in_owner = true
 visible = false
-layout_mode = 0
-offset_left = 635.0
-offset_right = 677.0
-offset_bottom = 36.0
-text = "00"
+layout_mode = 2
+text = "0"
 label_settings = SubResource("LabelSettings_4a30g")
+
+[node name="Background" type="MeshInstance3D" parent="Camera3D" unique_id=1629197530]
+unique_name_in_owner = true
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.33362627, -0.22022724, -38.022446)
+mesh = SubResource("QuadMesh_uo6lo")
+
+[node name="Background2" type="MeshInstance3D" parent="Camera3D/Background" unique_id=224472966]
+unique_name_in_owner = true
+transform = Transform3D(-0.8398189, -0.5428667, 0, 0.5428667, -0.8398189, 0, 0, 0, 1, 1.0797272, 0.0025191307, 21.560316)
+mesh = SubResource("QuadMesh_844n7")
+
+[node name="Background3" type="MeshInstance3D" parent="Camera3D/Background" unique_id=55477567]
+unique_name_in_owner = true
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, 21.46562)
+mesh = SubResource("QuadMesh_tqlhj")
+
+[node name="GroundFront" type="MeshInstance3D" parent="." unique_id=553319068]
+transform = Transform3D(0.95447505, 0, 0.29829127, 0.018984452, 0.9979727, -0.060746625, -0.29768652, 0.063644014, 0.95254, 4.226713, 1.6412205, -1.60337)
+mesh = SubResource("BoxMesh_1usfv")
+
+[node name="GroundBack" type="MeshInstance3D" parent="." unique_id=707854139]
+transform = Transform3D(1, 0, 0, 0, 0.99774206, -0.06716203, 0, 0.06716203, 0.99774206, 0.4500456, 1.6738939, -2.0690918)
+mesh = SubResource("BoxMesh_tha2k")
+
+[node name="GroundBack2" type="MeshInstance3D" parent="." unique_id=685198259]
+transform = Transform3D(1, 0, 0, 0, 0.9711176, -0.23860125, 0, 0.23860125, 0.9711176, 0.4500456, 1.7810705, -10.641968)
+mesh = SubResource("BoxMesh_tha2k")
+
+[node name="GroundBack3" type="MeshInstance3D" parent="." unique_id=2069660361]
+transform = Transform3D(1, 0, 0, 0, 0.9711176, -0.23860125, 0, 0.23860125, 0.9711176, 0.4500456, 1.7810705, -10.641968)
+mesh = SubResource("BoxMesh_tha2k")
+
+[node name="WaterFront" type="MeshInstance3D" parent="." unique_id=502189399]
+transform = Transform3D(-4.371139e-08, -1, 0, 1, -4.371139e-08, 0, 0, 4.440892e-16, 1, 0.27057076, 1.1860486, -0.2457276)
+visible = false
+mesh = SubResource("BoxMesh_4a30g")
+
+[node name="WaterBack" type="MeshInstance3D" parent="." unique_id=690101783]
+transform = Transform3D(-4.3711395e-08, 1, -3.029795e-16, -0.9969921, -4.357991e-08, -0.07750207, -0.07750207, -3.387722e-09, 0.9969921, 0.27057076, 1.0651152, 3.7188234)
+mesh = SubResource("BoxMesh_uo6lo")
 
 [node name="CSGBox3D" type="CSGBox3D" parent="." unique_id=1206046566]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.27057076, 1.1860487, 0)
+visible = false
 size = Vector3(26.149414, 1, 2.5)
 material = SubResource("StandardMaterial3D_eunhr")
 
-[node name="CSGBox3D2" type="CSGBox3D" parent="." unique_id=1838954807]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 6.4759483, 1.5356679, 0)
-size = Vector3(13.618774, 1, 2.220459)
-material = SubResource("StandardMaterial3D_k3v36")
-
 [node name="FishSpawner" parent="." unique_id=1093584567 instance=ExtResource("5_tha2k")]
 unique_name_in_owner = true
-transform = Transform3D(1.3113416e-07, 0, -1, 0, 1, 0, 1, 0, 1.3113416e-07, 1.3363872, 2.0717578, 0)
-spawn_scene = ExtResource("4_mnbj8")
+transform = Transform3D(1.3113416e-07, 0, -1, 0, 1, 0, 1, 0, 1.3113416e-07, 1.4300137, 2.033445, -0.5697646)
 spawn_count = 0
 spawn_range = Vector3(0.1, 0.1, 0.1)
 
+[node name="Rogue" parent="." unique_id=1032640015 instance=ExtResource("6_4a30g")]
+unique_name_in_owner = true
+transform = Transform3D(0, 0, -0.49999997, 0, 0.5, 0, 0.49999997, 0, 0, 0.003140211, 2.012727, 0)
+
 [node name="Fisher" parent="." unique_id=737313000 instance=ExtResource("7_2tca2")]
+unique_name_in_owner = true
 transform = Transform3D(0.35355338, 0, -0.35355338, 0, 0.5, 0, 0.35355338, 0, 0.35355338, 0.003140211, 2.012727, 0)
+visible = false
 
 [node name="club-red2" parent="." unique_id=50809243 instance=ExtResource("8_3u84q")]
 transform = Transform3D(-1.4210855e-14, 0.4999999, 0.86602545, -1.3076621e-07, -0.86602545, 0.4999999, 1, -1.13246855e-07, 6.5383105e-08, -0.6758499, 3.262594, -0.5308095)
+visible = false
 
 [node name="Fishbox" parent="." unique_id=569043876 instance=ExtResource("7_ewly5")]
 unique_name_in_owner = true
 process_mode = 4
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -2.0623252, 3.2432163, 0)
-visible = false
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -1.8338425, 2.7302954, 5.6156564)
 
 [node name="Bobber" parent="." unique_id=1765184523 instance=ExtResource("8_mnbj8")]
 unique_name_in_owner = true
 process_mode = 4
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 1.5027612, 0.8729248)
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 1.5027612, 5.874611)
 visible = false
 
 [node name="Tally" type="Area3D" parent="." unique_id=870180606]
+unique_name_in_owner = true
+process_mode = 3
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 1.43, 1.882, 0)
 
 [node name="CollisionShape3D" type="CollisionShape3D" parent="Tally" unique_id=2003822077]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 1.7767484, 0)
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, -0.1050303, 0)
 shape = SubResource("BoxShape3D_mnbj8")
 
 [node name="LevelTime" type="Timer" parent="." unique_id=2063393876]
@@ -196,4 +365,109 @@ unique_name_in_owner = true
 wait_time = 60.0
 one_shot = true
 
+[node name="Failcheck" type="Timer" parent="." unique_id=1999547313]
+unique_name_in_owner = true
+wait_time = 0.5
+
+[node name="ShowFish" type="Marker3D" parent="." unique_id=1984732941]
+unique_name_in_owner = true
+transform = Transform3D(0.7071067, -0.24184473, -0.664463, 0, 0.93969256, -0.34202012, 0.7071067, 0.24184473, 0.664463, -2.0534778, 3.7030587, 5.6156564)
+
+[node name="Phrases" type="Label3D" parent="ShowFish" unique_id=1206043377]
+unique_name_in_owner = true
+transform = Transform3D(0.9999999, 0, 0, 0, 1, 0, 0, 0, 1, 0, -0.27534294, 0.10021669)
+billboard = 1
+outline_modulate = Color(0, 0, 0, 0)
+font = ExtResource("3_1usfv")
+font_size = 24
+outline_size = 0
+
+[node name="Enviro" type="Node3D" parent="." unique_id=1168414603]
+
+[node name="Rock_1_J_Color12" parent="Enviro" unique_id=1697016888 instance=ExtResource("12_xdbwp")]
+transform = Transform3D(0.6229093, 0, 0, 0, 0.6229093, 0, 0, 0, 0.682289, -1.2519283, 2.3531487, -21.10018)
+
+[node name="Rock_1_M_Color12" parent="Enviro" unique_id=1383337943 instance=ExtResource("13_844n7")]
+transform = Transform3D(0.6628379, 0, 0, 0, 0.6628379, 0, 0, 0, 1, 3.1359558, 2.3327918, -20.905848)
+
+[node name="Rock_1_N_Color12" parent="Enviro" unique_id=440624822 instance=ExtResource("14_er007")]
+transform = Transform3D(0.7644061, 0, 0, 0, 0.7644061, 0, 0, 0, 1, -3.4402595, 2.3327918, -20.903341)
+
+[node name="Tree_3_A_Color12" parent="Enviro" unique_id=356738511 instance=ExtResource("15_tqlhj")]
+transform = Transform3D(-0.5308641, 0, -0.28497604, 0, 0.6074128, 0, 0.295184, 0, -0.5125059, -2.6390343, 2.1378176, -6.867258)
+
+[node name="Tree_3_C_Color12" parent="Enviro" unique_id=1691219716 instance=ExtResource("16_y1v7m")]
+transform = Transform3D(0.6503432, 0, 0, 0, 0.6503432, 0, 0, 0, 0.55299485, 3.4006586, 1.490835, -6.867258)
+
+[node name="Tree_4_B_Color12" parent="Enviro" unique_id=710688259 instance=ExtResource("17_u6pdb")]
+transform = Transform3D(0.15588726, 0, 0, 0, 0.15588726, 0, 0, 0, 0.21351206, 1.465929, 2.514512, -22.957138)
+
+[node name="Tree_4_B_Color13" parent="Enviro" unique_id=1021779674 instance=ExtResource("17_u6pdb")]
+transform = Transform3D(-0.07104916, 0, -0.11027049, 0, 0.11000815, 0, 0.08869971, 0, -0.08832752, 0.49212694, 2.514512, -22.957138)
+
+[node name="Tree_4_C_Color12" parent="Enviro" unique_id=496653053 instance=ExtResource("18_sojfe")]
+transform = Transform3D(0.15588726, 0, 0, 0, 0.15588726, 0, 0, 0, 0.21351206, -0.5846684, 2.5355537, -22.957138)
+
+[node name="Tree_4_A_Color12" parent="Enviro" unique_id=721126827 instance=ExtResource("19_pmrxv")]
+transform = Transform3D(0.115853965, 0, 0, 0, 0.115853965, 0, 0, 0, 0.21351206, 0.8906822, 2.4182892, -22.957138)
+
+[node name="Grass_2_D_Color12" parent="Enviro" unique_id=694096161 instance=ExtResource("20_s1hsn")]
+transform = Transform3D(0.36594868, 0, 0, 0, 0.23145342, 0, 0, 0, 0.33128446, -1.6920443, 2.201098, -2.6221924)
+
+[node name="Grass_2_D_Color13" parent="Enviro" unique_id=1918720879 instance=ExtResource("20_s1hsn")]
+transform = Transform3D(0.306419, 0, 0.18111363, 0, 0.23145342, 0, -0.20006458, 0, 0.27739364, -1.3951273, 2.201098, -2.2730713)
+
+[node name="Grass_2_D_Color15" parent="Enviro" unique_id=2099555020 instance=ExtResource("20_s1hsn")]
+transform = Transform3D(0.306419, 0, 0.18111363, 0, 0.23145342, 0, -0.20006458, 0, 0.27739364, -3.08854, 2.1262121, -1.557251)
+
+[node name="Grass_2_D_Color20" parent="Enviro" unique_id=650778904 instance=ExtResource("20_s1hsn")]
+transform = Transform3D(0.1609321, 0, 0.2975305, 0, 0.23145339, 0, -0.32866287, 0, 0.14568786, -3.642785, 2.1121747, -1.2678833)
+
+[node name="Grass_2_D_Color14" parent="Enviro" unique_id=2008671967 instance=ExtResource("20_s1hsn")]
+transform = Transform3D(0.058520973, 0, 0.327021, 0, 0.23145339, 0, -0.36123914, 0, 0.052977562, -0.96654224, 2.201098, -2.6542969)
+
+[node name="Grass_2_D_Color16" parent="Enviro" unique_id=1209411604 instance=ExtResource("20_s1hsn")]
+transform = Transform3D(0.36289084, 0, -0.042736784, 0, 0.23145342, 0, 0.047208652, 0, 0.3285163, 1.1241112, 2.201098, -2.6586304)
+
+[node name="Grass_2_D_Color21" parent="Enviro" unique_id=846005008 instance=ExtResource("20_s1hsn")]
+transform = Transform3D(0.36289084, 0, -0.042736784, 0, 0.23145342, 0, 0.047208652, 0, 0.3285163, 2.5111542, 2.1411633, -1.4246216)
+
+[node name="Grass_2_D_Color17" parent="Enviro" unique_id=465547020 instance=ExtResource("20_s1hsn")]
+transform = Transform3D(0.3497918, 0, 0.097350195, 0, 0.23145339, 0, -0.10753642, 0, 0.31665802, 1.6099625, 2.1728044, -2.1660156)
+
+[node name="Grass_2_D_Color18" parent="Enviro" unique_id=2003727668 instance=ExtResource("20_s1hsn")]
+transform = Transform3D(0.3497918, 0, 0.097350195, 0, 0.23145339, 0, -0.10753642, 0, 0.31665802, 2.164627, 2.201098, -2.4256592)
+
+[node name="Grass_2_D_Color19" parent="Enviro" unique_id=982749599 instance=ExtResource("20_s1hsn")]
+transform = Transform3D(0.3497918, 0, 0.097350195, 0, 0.23145339, 0, -0.10753642, 0, 0.31665802, 1.7529945, 2.201098, -2.753479)
+
+[node name="Bush_1_G_Color12" parent="Enviro" unique_id=1910314802 instance=ExtResource("22_nnf72")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.854429, 1.9032743, -24.378134)
+
+[node name="Bush_1_G_Color13" parent="Enviro" unique_id=147715156 instance=ExtResource("22_nnf72")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 2.1281083, 2.0187273, -24.378134)
+
+[node name="Bush_1_E_Color12" parent="Enviro" unique_id=142258023 instance=ExtResource("23_gh2x6")]
+transform = Transform3D(0.7218019, 0, 0, 0, 0.7218019, 0, 0, 0, 1, 2.8580523, 2.463543, -14.48473)
+
+[node name="Bush_1_E_Color14" parent="Enviro" unique_id=370053188 instance=ExtResource("23_gh2x6")]
+transform = Transform3D(-0.37036264, 0, 0.60036737, 0, 0.45558634, 0, -0.7531408, 0, -0.29523513, 2.8589106, 2.1999707, -2.2084846)
+
+[node name="Bush_1_E_Color13" parent="Enviro" unique_id=124562834 instance=ExtResource("23_gh2x6")]
+transform = Transform3D(-0.37866452, 0, 0.8513427, 0, 0.7218019, 0, -0.61450076, 0, -0.52461004, -1.8637667, 2.463543, -14.48473)
+
+[node name="Bush_1_E_Color15" parent="Enviro" unique_id=772803488 instance=ExtResource("23_gh2x6")]
+transform = Transform3D(0.20458873, 0, 0.46443763, 0, 0.4081281, 0, -0.5090329, 0, 0.18666512, -2.2541986, 2.1999707, -2.6718636)
+
+[node name="Bush_1_F_Color12" parent="Enviro" unique_id=751640039 instance=ExtResource("24_w7j6x")]
+transform = Transform3D(0.57557, 0, 0, 0, 0.57557, 0, 0, 0, 1, -3.3154407, 2.4552984, -13.268711)
+
+[node name="Bush_1_F_Color13" parent="Enviro" unique_id=1572658052 instance=ExtResource("24_w7j6x")]
+transform = Transform3D(0.31782082, 0, 0.4175017, 0, 0.4765585, 0, -0.29748434, 0, 0.44604284, -3.1449704, 2.1917262, -2.1993752)
+
+[connection signal="area_entered" from="Tally" to="." method="_on_tally_area_entered"]
+[connection signal="area_exited" from="Tally" to="." method="_on_tally_area_exited"]
+[connection signal="body_entered" from="Tally" to="." method="_on_tally_body_entered"]
+[connection signal="body_exited" from="Tally" to="." method="_on_tally_body_exited"]
 [connection signal="timeout" from="LevelTime" to="." method="_on_level_time_timeout"]
+[connection signal="timeout" from="Failcheck" to="." method="_on_failcheck_timeout"]

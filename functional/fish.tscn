@@ -6,6 +6,9 @@
 [ext_resource type="PackedScene" uid="uid://dcj1gainnmdka" path="res://Assets/Fish/fish_knight.glb" id="4_4wiv7"]
 [ext_resource type="PackedScene" uid="uid://d2nf54y02sxe5" path="res://Assets/Fish/fish_gift.glb" id="5_ys2mm"]
 
+[sub_resource type="BoxShape3D" id="BoxShape3D_484qd"]
+size = Vector3(1, 0.44592285, 0.56829834)
+
 [node name="Fish" type="Node3D" unique_id=1261320118]
 script = ExtResource("1_xu20i")
 
@@ -24,3 +27,10 @@ visible = false
 [node name="Gift" parent="." unique_id=787420640 instance=ExtResource("5_ys2mm")]
 unique_name_in_owner = true
 visible = false
+
+[node name="FishArea" type="Area3D" parent="." unique_id=1259851764 groups=["Fish"]]
+unique_name_in_owner = true
+
+[node name="FishColl" type="CollisionShape3D" parent="FishArea" unique_id=1296682586 groups=["Fish"]]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, -0.0028686523, 0.02041626)
+shape = SubResource("BoxShape3D_484qd")

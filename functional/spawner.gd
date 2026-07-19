@@ -5,7 +5,7 @@ extends Node3D
 #Add the scene of whatever you want to spawn in the inspector
 
 @export_group("Spawn Parameters")
-@export var spawn_scene: PackedScene
+@export var spawn_scene: PackedScene = preload("res://functional/fish.tscn")
 @export var spawn_count := 5
 @export var use_random_offset := false
 @export var spawn_range := Vector3(0,0,0)

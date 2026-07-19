@@ -1,0 +1,16 @@
+[gd_scene format=3 uid="uid://x7glbtx02uok"]
+
+[ext_resource type="PackedScene" uid="uid://bmj6vpdnuuqvr" path="res://Assets/enviro/KayKitNature/Rock_1_J_Color1.gltf" id="1_7lwi1"]
+[ext_resource type="PackedScene" uid="uid://4ev7bhgnrra3" path="res://Assets/enviro/KayKitNature/Rock_1_M_Color1.gltf" id="2_76s7p"]
+[ext_resource type="PackedScene" uid="uid://cfh8auxgm673k" path="res://Assets/enviro/KayKitNature/Rock_1_N_Color1.gltf" id="3_y6ais"]
+
+[node name="Rock" type="Node3D" unique_id=823299990]
+
+[node name="Rock_1_J_Color12" parent="." unique_id=1697016888 instance=ExtResource("1_7lwi1")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -2.6753845, 0, -1.3065186)
+
+[node name="Rock_1_M_Color12" parent="." unique_id=1383337943 instance=ExtResource("2_76s7p")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 1.9749451, 0, -0.2623291)
+
+[node name="Rock_1_N_Color12" parent="." unique_id=440624822 instance=ExtResource("3_y6ais")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -1.1809387, 0, 1.7783203)
