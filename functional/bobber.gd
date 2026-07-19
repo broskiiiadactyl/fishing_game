@@ -5,7 +5,6 @@ var spawner : int = 0
 var cull_time : float = 1.5
 
 @onready var spawn_timer : Timer = %SpawnTimer
-@onready var cull_timer : Timer = %CullTimer
 
 @onready var target1 : StaticBody3D = %Target1
 @onready var target2 : StaticBody3D = %Target2
@@ -34,7 +33,7 @@ func _physics_process(_delta: float) -> void:
 	
 	if target1.on:
 		if target1.global_position.x >= target_pos.x:
-			print(true)
+			#print(true)
 			cull_fish(target1)
 		else:
 			target1.global_position.x += target1.difficulty/25
@@ -59,15 +58,15 @@ func spawn_fish(count : int) -> void:
 		0:
 			if not target1.on:
 				randomize_target(target1, set_difficulty())
-			print(1)
+			#print(1)
 		1:
 			if not target2.on:
 				randomize_target(target2, set_difficulty())
-			print(2)
+			#print(2)
 		2:
 			if not target3.on:
 				randomize_target(target3, set_difficulty())
-			print(3)
+			#print(3)
 	spawner += 1
 
 func cull_fish(tar : StaticBody3D) -> void:

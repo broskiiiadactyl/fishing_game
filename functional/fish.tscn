@@ -2,8 +2,25 @@
 
 [ext_resource type="Script" uid="uid://cykjcn6abkukk" path="res://functional/fish.gd" id="1_xu20i"]
 [ext_resource type="PackedScene" uid="uid://b6a4n6crny4kk" path="res://Assets/Fish/fish.fbx" id="2_l3g6t"]
+[ext_resource type="PackedScene" uid="uid://cjikpfloycq7l" path="res://Assets/Fish/fish_wizard.glb" id="3_484qd"]
+[ext_resource type="PackedScene" uid="uid://dcj1gainnmdka" path="res://Assets/Fish/fish_knight.glb" id="4_4wiv7"]
+[ext_resource type="PackedScene" uid="uid://d2nf54y02sxe5" path="res://Assets/Fish/fish_gift.glb" id="5_ys2mm"]
 
 [node name="Fish" type="Node3D" unique_id=1261320118]
 script = ExtResource("1_xu20i")
 
-[node name="fish" parent="." unique_id=1691067368 instance=ExtResource("2_l3g6t")]
+[node name="Normal" parent="." unique_id=1691067368 instance=ExtResource("2_l3g6t")]
+unique_name_in_owner = true
+visible = false
+
+[node name="Wizard" parent="." unique_id=1706628360 instance=ExtResource("3_484qd")]
+unique_name_in_owner = true
+visible = false
+
+[node name="Knight" parent="." unique_id=1790737139 instance=ExtResource("4_4wiv7")]
+unique_name_in_owner = true
+visible = false
+
+[node name="Gift" parent="." unique_id=787420640 instance=ExtResource("5_ys2mm")]
+unique_name_in_owner = true
+visible = false

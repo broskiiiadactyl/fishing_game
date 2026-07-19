@@ -47,7 +47,7 @@ func randomize_target() -> void:
 	#var width : float = (R - L) / 2
 	var width := diff
 	
-	print("width: ", width)
+	#print("width: ", width)
 	
 	target_coll.shape.size.x = width
 	target_coll.global_position.x = L + width
@@ -59,10 +59,10 @@ func move_marker() -> void:
 
 func check_marker_bounds() -> void:
 	if arrow_check.global_position.x <= boundL:
-		print("pos")
+		#print("pos")
 		direction = 1
 	elif arrow_check.global_position.x >= boundR:
-		print("neg")
+		#print("neg")
 		direction = -1
 
 func check_target() -> bool:

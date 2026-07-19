@@ -9,7 +9,7 @@ var speed_mult : float = 0.05
 var count : int = 3
 var done = false
 
-enum gamestate {START, BOBBER, FISHING, SCORE, LOSE}
+enum gamestate {START, BOBBER, FISHING, LOSE, SCORE}
 var active_state = gamestate.START
 
 @onready var fishbox := %Fishbox
@@ -23,6 +23,10 @@ var active_state = gamestate.START
 @onready var score_num : Label = %ScoreNum
 @onready var timer_lab : Label = %TimerLabel
 @onready var timeout_lab : Label = %Timeout
+
+var small_pool : Array[String] = ["Normal"]
+var med_pool : Array[String] = ["Gift"]
+var big_pool : Array[String] = ["Wizard", "Knight"]
 
 # Called when the node enters the scene tree for the first time.
 func _ready() -> void:
@@ -39,7 +43,8 @@ func _physics_process(_delta: float) -> void:
 			done = false
 		gamestate.BOBBER:
 			if done:
-				set_active(gamestate.SCORE)
+				set_active(gamestate.LOSE)
+				vis = false
 			elif not vis:
 				bobber.init_target()
 				vis = true
@@ -50,14 +55,19 @@ func _physics_process(_delta: float) -> void:
 				vis = true
 			if count <= 0:
 				add_fish(difficulty)
-				play_phrase(str(difficulty))
 				vis = false
 				set_active(gamestate.BOBBER)
 			fishbox.counter.text = str(count)
-		gamestate.SCORE:
-			pass
 		gamestate.LOSE:
 			pass
+		gamestate.SCORE:
+			if not vis:
+				#start animation of character
+				#turn on coll detection?
+				vis = true
+				pass
+			#animation of character climbing
+			#move camera until no coll?
 	
 	if timer_lab.visible == true:
 		timer_lab.text = str(int(timer.time_left))
@@ -99,8 +109,8 @@ func set_active(state) -> void:
 			score_num.visible = true
 			timer_lab.visible = true
 			timeout_lab.visible = false
-		gamestate.SCORE:
-			active_state = gamestate.SCORE
+		gamestate.LOSE:
+			active_state = gamestate.LOSE
 			fishbox.process_mode = Node.PROCESS_MODE_DISABLED
 			bobber.process_mode = Node.PROCESS_MODE_DISABLED
 			fishbox.visible = false
@@ -110,8 +120,11 @@ func set_active(state) -> void:
 			score_num.visible = true
 			timer_lab.visible = true
 			timeout_lab.visible = true
-		gamestate.LOSE:
-			active_state = gamestate.LOSE
+			await get_tree().create_timer(3.0).timeout
+			set_active(gamestate.SCORE)
+		gamestate.SCORE:
+			active_state = gamestate.SCORE
+			vis = false
 			fishbox.process_mode = Node.PROCESS_MODE_DISABLED
 			bobber.process_mode = Node.PROCESS_MODE_DISABLED
 			fishbox.visible = false
@@ -128,13 +141,13 @@ func _unhandled_input(event: InputEvent) -> void:
 	if event.is_action_pressed("LMB"):
 		match active_state:
 			gamestate.START:
-				print("start")
+				#print("start")
 				set_active(gamestate.BOBBER)
 				timer.start()
 			gamestate.BOBBER:
 				var check = bobber.check_target()
 				if check:
-					print("check: ", check)
+					#print("check: ", check)
 					difficulty = check
 					set_active(gamestate.FISHING)
 					vis = false
@@ -144,56 +157,45 @@ func _unhandled_input(event: InputEvent) -> void:
 					fishbox.randomize_target()
 				else:
 					miss()
-			gamestate.SCORE:
-				pass
 			gamestate.LOSE:
+				pass
+			gamestate.SCORE:
+				#set some variable to take input to restart (maybe just display "R" to restart)
 				pass
 	
 	elif event.is_action_pressed("Reset"):
 		get_tree().reload_current_scene()
 
 func add_fish(size : float) -> void:
+	var species : String = set_fish(size)
 	fish += 1
-	score += size
+	score += int(size)
 	score_num.text = str(score)
-	spawner.spawn_size = size
-	spawner.spawn_count = 1
-	spawner.spawn_objects()
+	spawner.spawn_objects(1, size, species)
 	spawner.global_position.y += (size * .25)
+	
+	var caught : String = "Caught " + species + " Fish!"
+	play_phrase(caught)
 
 func miss() -> void:
-	play_phrase("miss")
+	play_phrase("MISS!")
 	set_active(gamestate.BOBBER)
 
 func play_phrase(phrase : String) -> void:
-	match phrase:
-		"miss":
-			phrases.text = "MISS!"
-			phrases.visible = true
-			await get_tree().create_timer(1.0).timeout
-			phrases.visible = false
-		"1.0":
-			phrases.text = "OK"
-			phrases.visible = true
-			await get_tree().create_timer(1.0).timeout
-			phrases.visible = false
-		"2.0":
-			phrases.text = "Nice!"
-			phrases.visible = true
-			await get_tree().create_timer(1.0).timeout
-			phrases.visible = false
-		"3.0":
-			phrases.text = "YUGE!!"
-			phrases.visible = true
-			await get_tree().create_timer(1.0).timeout
-			phrases.visible = false
-		_:
-			pass
+	phrases.text = phrase
+	phrases.visible = true
+	await get_tree().create_timer(1.0).timeout
+	phrases.visible = false
 
-func tally_score() -> void:
-	#take some score amount and multiply it by number of successes
-	#or however we decide to do that
-	pass
+func set_fish(size : float) -> String:
+	if size == 1: 
+		return small_pool.pick_random()
+	elif size == 2:
+		return med_pool.pick_random()
+	elif size == 3:
+		return big_pool.pick_random()
+	
+	return "ERROR"
 
 func final_score() -> void:
 	#display final score

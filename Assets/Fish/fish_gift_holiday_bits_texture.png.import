@@ -1,0 +1,44 @@
+[remap]
+
+importer="texture"
+type="CompressedTexture2D"
+uid="uid://dgq13slux3dyc"
+path.s3tc="res://.godot/imported/fish_gift_holiday_bits_texture.png-b0c80ccffe2f32c959cc347df9d10f72.s3tc.ctex"
+metadata={
+"imported_formats": ["s3tc_bptc"],
+"vram_texture": true
+}
+generator_parameters={
+"md5": "a6a05504e4d07008e867304b297bea60"
+}
+
+[deps]
+
+source_file="res://Assets/Fish/fish_gift_holiday_bits_texture.png"
+dest_files=["res://.godot/imported/fish_gift_holiday_bits_texture.png-b0c80ccffe2f32c959cc347df9d10f72.s3tc.ctex"]
+
+[params]
+
+compress/mode=2
+compress/high_quality=false
+compress/lossy_quality=0.7
+compress/uastc_level=0
+compress/rdo_quality_loss=0.0
+compress/hdr_compression=1
+compress/normal_map=0
+compress/channel_pack=0
+mipmaps/generate=true
+mipmaps/limit=-1
+roughness/mode=0
+roughness/src_normal=""
+process/channel_remap/red=0
+process/channel_remap/green=1
+process/channel_remap/blue=2
+process/channel_remap/alpha=3
+process/fix_alpha_border=true
+process/premult_alpha=false
+process/normal_map_invert_y=false
+process/hdr_as_srgb=false
+process/hdr_clamp_exposure=false
+process/size_limit=0
+detect_3d/compress_to=0

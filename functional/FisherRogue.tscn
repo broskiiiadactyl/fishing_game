@@ -1,0 +1,37 @@
+[gd_scene format=3 uid="uid://besxfc02wp5e0"]
+
+[ext_resource type="PackedScene" uid="uid://bwvfbrh3d5645" path="res://Characters/fisher_tpose_but4real.glb" id="1_l8fvu"]
+[ext_resource type="Animation" uid="uid://mp4fyfyjo8e6" path="res://Characters/Action.res" id="2_4k0o7"]
+[ext_resource type="Animation" uid="uid://cldsq6lt0arxg" path="res://Characters/Action_001.res" id="3_rjh7i"]
+[ext_resource type="Animation" uid="uid://jbmof8a208gr" path="res://Characters/Action_002.res" id="4_d4fjo"]
+[ext_resource type="Animation" uid="uid://cgyhe6x8eumsk" path="res://Characters/Rig_MediumAction.res" id="5_co7vg"]
+
+[sub_resource type="AnimationLibrary" id="AnimationLibrary_h4nxp"]
+_data = {
+&"Action": ExtResource("2_4k0o7"),
+&"Action_001": ExtResource("3_rjh7i"),
+&"Action_002": ExtResource("4_d4fjo"),
+&"Rig_MediumAction": ExtResource("5_co7vg")
+}
+
+[node name="fisher_tpose_but4real" unique_id=1032640015 instance=ExtResource("1_l8fvu")]
+
+[node name="GeneralSkeleton" parent="Rig_Medium" parent_id_path=PackedInt32Array(1087570149) index="0" unique_id=1031013352]
+bones/0/rotation = Quaternion(-8.940696e-08, 0.55122375, 5.960465e-08, 0.83435744)
+bones/1/rotation = Quaternion(-1.7763568e-15, 0, 1.05879093e-22, 1)
+bones/2/rotation = Quaternion(-0.033940956, -1.7761735e-08, -0.0795812, 0.9962504)
+bones/5/rotation = Quaternion(0.30548275, 0.758113, -0.11243844, 0.5650687)
+bones/6/rotation = Quaternion(-4.2146848e-08, -0.7071068, 0, 0.7071068)
+bones/10/rotation = Quaternion(0.24821563, -0.5597866, 0.38109905, 0.6926698)
+bones/11/rotation = Quaternion(-4.2146848e-08, 0.7071068, 0, 0.7071068)
+bones/15/rotation = Quaternion(7.446026e-09, 1.8626449e-09, 1, 2.588365e-10)
+bones/16/rotation = Quaternion(-3.303207e-09, 1, 2.980245e-08, -6.597897e-10)
+bones/17/rotation = Quaternion(-8.519669e-09, 0.70710677, -0.70710677, 1.2060623e-09)
+bones/18/rotation = Quaternion(-7.450596e-09, 1, -2.9802322e-08, -1.9860968e-09)
+bones/19/rotation = Quaternion(3.7556212e-08, 0.18192631, 0.885973, 0.42656162)
+bones/20/rotation = Quaternion(-1.3199398e-09, 1, 2.980246e-08, 7.3325257e-09)
+bones/21/rotation = Quaternion(7.652998e-09, 0.70710677, -0.70710677, 1.1038187e-08)
+bones/22/rotation = Quaternion(-1.8626403e-09, 1, -2.9802322e-08, -1.3107028e-08)
+
+[node name="AnimationPlayer" type="AnimationPlayer" parent="Rig_Medium/GeneralSkeleton" index="7" unique_id=577718223]
+libraries/Base = SubResource("AnimationLibrary_h4nxp")
