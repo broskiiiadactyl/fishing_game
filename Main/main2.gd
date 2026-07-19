@@ -41,8 +41,14 @@ var active_state = gamestate.START
 @onready var feesh := preload("res://functional/fish.tscn")
 
 var small_pool : Array[String] = ["Normal"]
-var med_pool : Array[String] = ["Gift"]
-var big_pool : Array[String] = ["Wizard", "Knight"]
+var med_pool : Array[String] = ["Gift", "Truck", "Keys", "Skull"]
+var big_pool : Array[String] = ["Wizard", "Knight", "Rich"]
+
+@onready var BGM := %BGM
+@onready var catch_sfx := %CatchSFX
+@onready var hit := %HitSFX
+@onready var miss_sfx := %MissSFX
+@onready var timer_sfx := %Timer
 
 # Called when the node enters the scene tree for the first time.
 func _ready() -> void:
@@ -55,6 +61,8 @@ func _ready() -> void:
 	fish_lab.visible = false
 	fish_num.visible = false
 	reset_lab.visible = false
+	
+	BGM.play()
 
 func _physics_process(_delta: float) -> void:
 	match active_state:
@@ -73,6 +81,7 @@ func _physics_process(_delta: float) -> void:
 				vis = true
 			if count <= 0:
 				add_fish(difficulty)
+				catch_sfx.play()
 				vis = false
 				set_active(gamestate.BOBBER)
 				fisher.pull()
@@ -177,6 +186,7 @@ func set_active(state) -> void:
 			timeout_lab.visible = true
 			fish_lab.visible = false
 			fish_num.visible = false
+			timer_sfx.play()
 			await get_tree().create_timer(3.0).timeout
 			set_active(gamestate.SCORE)
 		gamestate.SCORE:
@@ -217,6 +227,7 @@ func _unhandled_input(event: InputEvent) -> void:
 				if fishbox.check_target():
 					count -= 1
 					fishbox.randomize_target()
+					hit.play()
 				else:
 					miss()
 			gamestate.LOSE:
@@ -244,6 +255,7 @@ func miss() -> void:
 	play_phrase("MISS!", "")
 	set_active(gamestate.BOBBER)
 	lives -= 1
+	miss_sfx.play()
 	
 
 func play_phrase(phrase : String, species : String) -> void:

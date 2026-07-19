@@ -1,0 +1,236 @@
+[gd_scene format=3 uid="uid://d1v1arktidro2"]
+
+[ext_resource type="PackedScene" uid="uid://besxfc02wp5e0" path="res://functional/FisherRogue.tscn" id="1_jmxst"]
+[ext_resource type="Texture2D" uid="uid://clbvg8l4008vw" path="res://Assets/Skyboxes/skybox-night.png" id="2_7wfy5"]
+[ext_resource type="Texture2D" uid="uid://bws1ygjgt0bhp" path="res://Assets/Random/cone_composed_c_noise.png" id="3_d6cap"]
+[ext_resource type="PackedScene" uid="uid://bmj6vpdnuuqvr" path="res://Assets/enviro/KayKitNature/Rock_1_J_Color1.gltf" id="4_ebhll"]
+[ext_resource type="PackedScene" uid="uid://4ev7bhgnrra3" path="res://Assets/enviro/KayKitNature/Rock_1_M_Color1.gltf" id="5_luwbf"]
+[ext_resource type="PackedScene" uid="uid://cfh8auxgm673k" path="res://Assets/enviro/KayKitNature/Rock_1_N_Color1.gltf" id="6_50iem"]
+[ext_resource type="PackedScene" uid="uid://b8dsgttlo0cxg" path="res://Assets/enviro/KayKitNature/Tree_3_A_Color1.gltf" id="7_2ydyt"]
+[ext_resource type="PackedScene" uid="uid://d334jlrnpc0sw" path="res://Assets/enviro/KayKitNature/Tree_3_C_Color1.gltf" id="8_funtw"]
+[ext_resource type="PackedScene" uid="uid://clrpeglcny58d" path="res://Assets/enviro/KayKitNature/Tree_4_B_Color1.gltf" id="9_0ilwf"]
+[ext_resource type="PackedScene" uid="uid://b0dked04d11d2" path="res://Assets/enviro/KayKitNature/Tree_4_C_Color1.gltf" id="10_t535m"]
+[ext_resource type="PackedScene" uid="uid://dbj2wt7g3c8ev" path="res://Assets/enviro/KayKitNature/Tree_4_A_Color1.gltf" id="11_rtjve"]
+[ext_resource type="PackedScene" uid="uid://bamlhl8atux8" path="res://Assets/enviro/KayKitNature/Grass_2_D_Color1.gltf" id="12_dsmcb"]
+[ext_resource type="PackedScene" uid="uid://foyiwry1os63" path="res://Assets/enviro/KayKitNature/Bush_1_G_Color1.gltf" id="13_kooni"]
+[ext_resource type="PackedScene" uid="uid://bipyhqxkeki8r" path="res://Assets/enviro/KayKitNature/Bush_1_E_Color1.gltf" id="14_4s4hr"]
+[ext_resource type="PackedScene" uid="uid://4a2k5n4lc45j" path="res://Assets/enviro/KayKitNature/Bush_1_F_Color1.gltf" id="15_csejn"]
+[ext_resource type="PackedScene" uid="uid://bjl4b8fytogj" path="res://Assets/Random/fishing_tacklebox.gltf" id="16_acx37"]
+[ext_resource type="PackedScene" uid="uid://b0iyyky2guk47" path="res://Assets/Random/fishing_floater.gltf" id="17_f01l3"]
+[ext_resource type="PackedScene" uid="uid://dms8qdggvfo84" path="res://functional/fish.tscn" id="18_x16jj"]
+
+[sub_resource type="PanoramaSkyMaterial" id="PanoramaSkyMaterial_qdaxi"]
+panorama = ExtResource("2_7wfy5")
+
+[sub_resource type="Sky" id="Sky_qvhan"]
+sky_material = SubResource("PanoramaSkyMaterial_qdaxi")
+
+[sub_resource type="Environment" id="Environment_d8cbk"]
+background_mode = 2
+sky = SubResource("Sky_qvhan")
+tonemap_mode = 2
+
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_tha2k"]
+albedo_texture = ExtResource("2_7wfy5")
+uv1_offset = Vector3(1.225, 0, 0)
+disable_receive_shadows = true
+
+[sub_resource type="QuadMesh" id="QuadMesh_ianlm"]
+material = SubResource("StandardMaterial3D_tha2k")
+size = Vector2(9, 6)
+
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_xdbwp"]
+transparency = 1
+blend_mode = 1
+albedo_color = Color(0.36078432, 0.2901961, 0.5568628, 1)
+albedo_texture = ExtResource("3_d6cap")
+uv1_offset = Vector3(-0.04, 0.295, 0)
+
+[sub_resource type="QuadMesh" id="QuadMesh_ei72c"]
+material = SubResource("StandardMaterial3D_xdbwp")
+size = Vector2(10, 10)
+
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_er007"]
+transparency = 1
+albedo_color = Color(0.2901961, 0.21176471, 0.42745098, 0.4627451)
+uv1_offset = Vector3(-0.04, 0.295, 0)
+
+[sub_resource type="QuadMesh" id="QuadMesh_cclo4"]
+material = SubResource("StandardMaterial3D_er007")
+size = Vector2(9, 6)
+
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_4a30g"]
+albedo_color = Color(0.28627452, 0.39215687, 0.15294118, 1)
+
+[sub_resource type="BoxMesh" id="BoxMesh_dbm0d"]
+material = SubResource("StandardMaterial3D_4a30g")
+size = Vector3(10, 1, 2)
+
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_1usfv"]
+albedo_color = Color(0.2863572, 0.39095843, 0.15193978, 1)
+
+[sub_resource type="BoxMesh" id="BoxMesh_3gfiu"]
+material = SubResource("StandardMaterial3D_1usfv")
+size = Vector3(10, 1, 2)
+
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_uo6lo"]
+albedo_color = Color(0.15294118, 0.41960785, 0.60784316, 1)
+
+[sub_resource type="BoxMesh" id="BoxMesh_brxqd"]
+material = SubResource("StandardMaterial3D_uo6lo")
+size = Vector3(1, 10, 3)
+
+[sub_resource type="BoxMesh" id="BoxMesh_qgit8"]
+material = SubResource("StandardMaterial3D_uo6lo")
+size = Vector3(1, 10, 10)
+
+[node name="Node3D" type="Node3D" unique_id=203579218]
+
+[node name="Rogue2" parent="." unique_id=1032640015 instance=ExtResource("1_jmxst")]
+transform = Transform3D(0.26020113, 0, -0.9655544, 0, 1, 0, 0.9655544, 0, 0.26020113, 1.0295815, 2.619338, 0)
+
+[node name="WorldEnvironment" type="WorldEnvironment" parent="." unique_id=407222097]
+environment = SubResource("Environment_d8cbk")
+
+[node name="DirectionalLight3D" type="DirectionalLight3D" parent="." unique_id=649822805]
+transform = Transform3D(1, 0, 0, 0, 0.7040395, 0.7101608, 0, -0.7101608, 0.7040395, 0, 31.613934, 0)
+light_color = Color(0.5028432, 0.34954718, 0.5708878, 1)
+shadow_enabled = true
+
+[node name="Background" type="MeshInstance3D" parent="." unique_id=61029124]
+unique_name_in_owner = true
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.33362627, 3.6223657, -38.022446)
+mesh = SubResource("QuadMesh_ianlm")
+
+[node name="Background2" type="MeshInstance3D" parent="Background" unique_id=807631848]
+unique_name_in_owner = true
+transform = Transform3D(-0.8398189, -0.5428667, 0, 0.5428667, -0.8398189, 0, 0, 0, 1, 1.0797272, 0.0025191307, 21.560316)
+mesh = SubResource("QuadMesh_ei72c")
+
+[node name="Background3" type="MeshInstance3D" parent="Background" unique_id=809232749]
+unique_name_in_owner = true
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, 21.46562)
+mesh = SubResource("QuadMesh_cclo4")
+
+[node name="GroundFront" type="MeshInstance3D" parent="." unique_id=1501968281]
+transform = Transform3D(0.95447505, 0, 0.29829127, 0.018984452, 0.9979727, -0.060746625, -0.29768652, 0.063644014, 0.95254, 4.226713, 1.6412205, -1.60337)
+mesh = SubResource("BoxMesh_dbm0d")
+
+[node name="GroundBack" type="MeshInstance3D" parent="." unique_id=74672777]
+transform = Transform3D(1, 0, 0, 0, 0.99774206, -0.06716203, 0, 0.06716203, 0.99774206, 0.4500456, 1.6738939, -2.0690918)
+mesh = SubResource("BoxMesh_3gfiu")
+
+[node name="GroundBack2" type="MeshInstance3D" parent="." unique_id=611989084]
+transform = Transform3D(1, 0, 0, 0, 0.9711176, -0.23860125, 0, 0.23860125, 0.9711176, 0.4500456, 1.7810705, -10.641968)
+mesh = SubResource("BoxMesh_3gfiu")
+
+[node name="GroundBack3" type="MeshInstance3D" parent="." unique_id=748570167]
+transform = Transform3D(1, 0, 0, 0, 0.9711176, -0.23860125, 0, 0.23860125, 0.9711176, 0.4500456, 1.7810705, -10.641968)
+mesh = SubResource("BoxMesh_3gfiu")
+
+[node name="WaterFront" type="MeshInstance3D" parent="." unique_id=735132910]
+transform = Transform3D(-4.371139e-08, -1, 0, 1, -4.371139e-08, 0, 0, 4.440892e-16, 1, 0.27057076, 1.1860486, -0.2457276)
+visible = false
+mesh = SubResource("BoxMesh_brxqd")
+
+[node name="WaterBack" type="MeshInstance3D" parent="." unique_id=190048818]
+transform = Transform3D(-4.3711395e-08, 1, -3.029795e-16, -0.9969921, -4.357991e-08, -0.07750207, -0.07750207, -3.387722e-09, 0.9969921, 0.27057076, 1.0651152, 3.7188234)
+mesh = SubResource("BoxMesh_qgit8")
+
+[node name="Enviro" type="Node3D" parent="." unique_id=26131771]
+
+[node name="Rock_1_J_Color12" parent="Enviro" unique_id=1697016888 instance=ExtResource("4_ebhll")]
+transform = Transform3D(0.6229093, 0, 0, 0, 0.6229093, 0, 0, 0, 0.682289, -1.2519283, 2.3531487, -21.10018)
+
+[node name="Rock_1_M_Color12" parent="Enviro" unique_id=1383337943 instance=ExtResource("5_luwbf")]
+transform = Transform3D(0.6628379, 0, 0, 0, 0.6628379, 0, 0, 0, 1, 3.1359558, 2.3327918, -20.905848)
+
+[node name="Rock_1_N_Color12" parent="Enviro" unique_id=440624822 instance=ExtResource("6_50iem")]
+transform = Transform3D(0.7644061, 0, 0, 0, 0.7644061, 0, 0, 0, 1, -3.4402595, 2.3327918, -20.903341)
+
+[node name="Tree_3_A_Color12" parent="Enviro" unique_id=356738511 instance=ExtResource("7_2ydyt")]
+transform = Transform3D(-0.5308641, 0, -0.28497604, 0, 0.6074128, 0, 0.295184, 0, -0.5125059, -2.6390343, 2.1378176, -6.867258)
+
+[node name="Tree_3_C_Color12" parent="Enviro" unique_id=1691219716 instance=ExtResource("8_funtw")]
+transform = Transform3D(0.6503432, 0, 0, 0, 0.6503432, 0, 0, 0, 0.55299485, 3.4006586, 1.490835, -6.867258)
+
+[node name="Tree_4_B_Color12" parent="Enviro" unique_id=710688259 instance=ExtResource("9_0ilwf")]
+transform = Transform3D(0.15588726, 0, 0, 0, 0.15588726, 0, 0, 0, 0.21351206, 1.465929, 2.514512, -22.957138)
+
+[node name="Tree_4_B_Color13" parent="Enviro" unique_id=257649327 instance=ExtResource("9_0ilwf")]
+transform = Transform3D(-0.07104916, 0, -0.11027049, 0, 0.11000815, 0, 0.08869971, 0, -0.08832752, 0.49212694, 2.514512, -22.957138)
+
+[node name="Tree_4_C_Color12" parent="Enviro" unique_id=496653053 instance=ExtResource("10_t535m")]
+transform = Transform3D(0.15588726, 0, 0, 0, 0.15588726, 0, 0, 0, 0.21351206, -0.5846684, 2.5355537, -22.957138)
+
+[node name="Tree_4_A_Color12" parent="Enviro" unique_id=721126827 instance=ExtResource("11_rtjve")]
+transform = Transform3D(0.115853965, 0, 0, 0, 0.115853965, 0, 0, 0, 0.21351206, 0.8906822, 2.4182892, -22.957138)
+
+[node name="Grass_2_D_Color12" parent="Enviro" unique_id=694096161 instance=ExtResource("12_dsmcb")]
+transform = Transform3D(0.36594868, 0, 0, 0, 0.23145342, 0, 0, 0, 0.33128446, -1.6920443, 2.201098, -2.6221924)
+
+[node name="Grass_2_D_Color13" parent="Enviro" unique_id=401328823 instance=ExtResource("12_dsmcb")]
+transform = Transform3D(0.306419, 0, 0.18111363, 0, 0.23145342, 0, -0.20006458, 0, 0.27739364, -1.3951273, 2.201098, -2.2730713)
+
+[node name="Grass_2_D_Color15" parent="Enviro" unique_id=1252311921 instance=ExtResource("12_dsmcb")]
+transform = Transform3D(0.306419, 0, 0.18111363, 0, 0.23145342, 0, -0.20006458, 0, 0.27739364, -3.08854, 2.1262121, -1.557251)
+
+[node name="Grass_2_D_Color20" parent="Enviro" unique_id=801990907 instance=ExtResource("12_dsmcb")]
+transform = Transform3D(0.1609321, 0, 0.2975305, 0, 0.23145339, 0, -0.32866287, 0, 0.14568786, -3.642785, 2.1121747, -1.2678833)
+
+[node name="Grass_2_D_Color14" parent="Enviro" unique_id=2143782340 instance=ExtResource("12_dsmcb")]
+transform = Transform3D(0.058520973, 0, 0.327021, 0, 0.23145339, 0, -0.36123914, 0, 0.052977562, -0.96654224, 2.201098, -2.6542969)
+
+[node name="Grass_2_D_Color16" parent="Enviro" unique_id=852924312 instance=ExtResource("12_dsmcb")]
+transform = Transform3D(0.36289084, 0, -0.042736784, 0, 0.23145342, 0, 0.047208652, 0, 0.3285163, 1.1241112, 2.201098, -2.6586304)
+
+[node name="Grass_2_D_Color21" parent="Enviro" unique_id=791991948 instance=ExtResource("12_dsmcb")]
+transform = Transform3D(0.36289084, 0, -0.042736784, 0, 0.23145342, 0, 0.047208652, 0, 0.3285163, 2.5111542, 2.1411633, -1.4246216)
+
+[node name="Grass_2_D_Color17" parent="Enviro" unique_id=1812654853 instance=ExtResource("12_dsmcb")]
+transform = Transform3D(0.3497918, 0, 0.097350195, 0, 0.23145339, 0, -0.10753642, 0, 0.31665802, 1.6099625, 2.1728044, -2.1660156)
+
+[node name="Grass_2_D_Color18" parent="Enviro" unique_id=985582133 instance=ExtResource("12_dsmcb")]
+transform = Transform3D(0.3497918, 0, 0.097350195, 0, 0.23145339, 0, -0.10753642, 0, 0.31665802, 2.164627, 2.201098, -2.4256592)
+
+[node name="Grass_2_D_Color19" parent="Enviro" unique_id=1188707516 instance=ExtResource("12_dsmcb")]
+transform = Transform3D(0.3497918, 0, 0.097350195, 0, 0.23145339, 0, -0.10753642, 0, 0.31665802, 1.7529945, 2.201098, -2.753479)
+
+[node name="Bush_1_G_Color12" parent="Enviro" unique_id=1910314802 instance=ExtResource("13_kooni")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.854429, 1.9032743, -24.378134)
+
+[node name="Bush_1_G_Color13" parent="Enviro" unique_id=283080021 instance=ExtResource("13_kooni")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 2.1281083, 2.0187273, -24.378134)
+
+[node name="Bush_1_E_Color12" parent="Enviro" unique_id=142258023 instance=ExtResource("14_4s4hr")]
+transform = Transform3D(0.7218019, 0, 0, 0, 0.7218019, 0, 0, 0, 1, 2.8580523, 2.463543, -14.48473)
+
+[node name="Bush_1_E_Color14" parent="Enviro" unique_id=479742870 instance=ExtResource("14_4s4hr")]
+transform = Transform3D(-0.37036264, 0, 0.60036737, 0, 0.45558634, 0, -0.7531408, 0, -0.29523513, 2.8589106, 2.1999707, -2.2084846)
+
+[node name="Bush_1_E_Color13" parent="Enviro" unique_id=1928725968 instance=ExtResource("14_4s4hr")]
+transform = Transform3D(-0.37866452, 0, 0.8513427, 0, 0.7218019, 0, -0.61450076, 0, -0.52461004, -1.8637667, 2.463543, -14.48473)
+
+[node name="Bush_1_E_Color15" parent="Enviro" unique_id=1945224623 instance=ExtResource("14_4s4hr")]
+transform = Transform3D(0.20458873, 0, 0.46443763, 0, 0.4081281, 0, -0.5090329, 0, 0.18666512, -2.2541986, 2.1999707, -2.6718636)
+
+[node name="Bush_1_F_Color12" parent="Enviro" unique_id=751640039 instance=ExtResource("15_csejn")]
+transform = Transform3D(0.57557, 0, 0, 0, 0.57557, 0, 0, 0, 1, -3.3154407, 2.4552984, -13.268711)
+
+[node name="Bush_1_F_Color13" parent="Enviro" unique_id=1408442410 instance=ExtResource("15_csejn")]
+transform = Transform3D(0.31782082, 0, 0.4175017, 0, 0.4765585, 0, -0.29748434, 0, 0.44604284, -3.1449704, 2.1917262, -2.1993752)
+
+[node name="fishing_tacklebox2" parent="." unique_id=1783140804 instance=ExtResource("16_acx37")]
+transform = Transform3D(0.40858865, 0, 0, 0, 0.48371482, 0, 0, 0, 0.41851103, 0.34385663, 2.0321217, -0.74997616)
+
+[node name="fishing_floater2" parent="." unique_id=2133328323 instance=ExtResource("17_f01l3")]
+transform = Transform3D(0.2671643, 0.103092186, 0, -0.11087618, 0.2484082, 0, 0, 0, 0.2728123, 0.5247916, 2.1191268, -0.54166365)
+
+[node name="Fish" parent="." unique_id=1261320118 instance=ExtResource("18_x16jj")]
+transform = Transform3D(2.1334496, 0.80575645, -1.9491408, 0.28867432, 2.6347978, 1.4051718, 2.0892727, -1.1868434, 1.7962022, 0.24957603, 3.0206015, 2.0248408)
+
+[node name="Camera3D" type="Camera3D" parent="." unique_id=1092286952]
+unique_name_in_owner = true
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.6820173, 3.7487829, 12.507431)
+projection = 1
+size = 4.0

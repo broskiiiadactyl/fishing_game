@@ -22,17 +22,24 @@
 [ext_resource type="PackedScene" uid="uid://bamlhl8atux8" path="res://Assets/enviro/KayKitNature/Grass_2_D_Color1.gltf" id="20_s1hsn"]
 [ext_resource type="PackedScene" uid="uid://foyiwry1os63" path="res://Assets/enviro/KayKitNature/Bush_1_G_Color1.gltf" id="22_nnf72"]
 [ext_resource type="PackedScene" uid="uid://bipyhqxkeki8r" path="res://Assets/enviro/KayKitNature/Bush_1_E_Color1.gltf" id="23_gh2x6"]
+[ext_resource type="PackedScene" uid="uid://bjl4b8fytogj" path="res://Assets/Random/fishing_tacklebox.gltf" id="24_844n7"]
 [ext_resource type="PackedScene" uid="uid://4a2k5n4lc45j" path="res://Assets/enviro/KayKitNature/Bush_1_F_Color1.gltf" id="24_w7j6x"]
+[ext_resource type="PackedScene" uid="uid://b0iyyky2guk47" path="res://Assets/Random/fishing_floater.gltf" id="25_er007"]
+[ext_resource type="AudioStream" uid="uid://baoaklsgyxyp" path="res://Assets/Random/Three Red Hearts - Connected.ogg" id="26_er007"]
+[ext_resource type="AudioStream" uid="uid://c3icva5ujvtjr" path="res://Assets/Random/utility8.wav" id="27_tqlhj"]
+[ext_resource type="AudioStream" uid="uid://csw1c7x0214sh" path="res://Assets/Random/EM_WATER_LAUNCH_01.ogg" id="27_u6pdb"]
+[ext_resource type="AudioStream" uid="uid://iuxmf3xu20n" path="res://Assets/Random/utility11.wav" id="28_sojfe"]
+[ext_resource type="AudioStream" uid="uid://cf0rce3d2ibb4" path="res://Assets/Random/utility17.wav" id="30_sojfe"]
 
 [sub_resource type="PanoramaSkyMaterial" id="PanoramaSkyMaterial_eunhr"]
 panorama = ExtResource("11_1usfv")
 
-[sub_resource type="Sky" id="Sky_qvhan"]
+[sub_resource type="Sky" id="Sky_sojfe"]
 sky_material = SubResource("PanoramaSkyMaterial_eunhr")
 
 [sub_resource type="Environment" id="Environment_eunhr"]
 background_mode = 2
-sky = SubResource("Sky_qvhan")
+sky = SubResource("Sky_sojfe")
 tonemap_mode = 2
 
 [sub_resource type="LabelSettings" id="LabelSettings_f6fdm"]
@@ -60,16 +67,16 @@ font = ExtResource("3_3wjc4")
 font_size = 48
 font_color = Color(1, 1, 1, 0.8235294)
 
-[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_tha2k"]
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_pmrxv"]
 albedo_texture = ExtResource("11_1usfv")
 uv1_offset = Vector3(1.225, 0, 0)
 disable_receive_shadows = true
 
 [sub_resource type="QuadMesh" id="QuadMesh_uo6lo"]
-material = SubResource("StandardMaterial3D_tha2k")
+material = SubResource("StandardMaterial3D_pmrxv")
 size = Vector2(9, 6)
 
-[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_xdbwp"]
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_s1hsn"]
 transparency = 1
 blend_mode = 1
 albedo_color = Color(0.36078432, 0.2901961, 0.5568628, 1)
@@ -77,41 +84,41 @@ albedo_texture = ExtResource("12_844n7")
 uv1_offset = Vector3(-0.04, 0.295, 0)
 
 [sub_resource type="QuadMesh" id="QuadMesh_844n7"]
-material = SubResource("StandardMaterial3D_xdbwp")
+material = SubResource("StandardMaterial3D_s1hsn")
 size = Vector2(10, 10)
 
-[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_er007"]
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_j2qcf"]
 transparency = 1
 albedo_color = Color(0.2901961, 0.21176471, 0.42745098, 0.4627451)
 uv1_offset = Vector3(-0.04, 0.295, 0)
 
 [sub_resource type="QuadMesh" id="QuadMesh_tqlhj"]
-material = SubResource("StandardMaterial3D_er007")
+material = SubResource("StandardMaterial3D_j2qcf")
 size = Vector2(9, 6)
 
-[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_4a30g"]
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_nnf72"]
 albedo_color = Color(0.28627452, 0.39215687, 0.15294118, 1)
 
 [sub_resource type="BoxMesh" id="BoxMesh_1usfv"]
-material = SubResource("StandardMaterial3D_4a30g")
+material = SubResource("StandardMaterial3D_nnf72")
 size = Vector3(10, 1, 2)
 
-[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_1usfv"]
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_gh2x6"]
 albedo_color = Color(0.2863572, 0.39095843, 0.15193978, 1)
 
 [sub_resource type="BoxMesh" id="BoxMesh_tha2k"]
-material = SubResource("StandardMaterial3D_1usfv")
+material = SubResource("StandardMaterial3D_gh2x6")
 size = Vector3(10, 1, 2)
 
-[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_uo6lo"]
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_w7j6x"]
 albedo_color = Color(0.15294118, 0.41960785, 0.60784316, 1)
 
 [sub_resource type="BoxMesh" id="BoxMesh_4a30g"]
-material = SubResource("StandardMaterial3D_uo6lo")
+material = SubResource("StandardMaterial3D_w7j6x")
 size = Vector3(1, 10, 3)
 
 [sub_resource type="BoxMesh" id="BoxMesh_uo6lo"]
-material = SubResource("StandardMaterial3D_uo6lo")
+material = SubResource("StandardMaterial3D_w7j6x")
 size = Vector3(1, 10, 10)
 
 [sub_resource type="StandardMaterial3D" id="StandardMaterial3D_eunhr"]
@@ -327,7 +334,7 @@ transform = Transform3D(1.3113416e-07, 0, -1, 0, 1, 0, 1, 0, 1.3113416e-07, 1.43
 spawn_count = 0
 spawn_range = Vector3(0.1, 0.1, 0.1)
 
-[node name="Rogue" parent="." unique_id=1032640015 instance=ExtResource("6_4a30g")]
+[node name="Rogue" parent="." unique_id=997302698 instance=ExtResource("6_4a30g")]
 unique_name_in_owner = true
 transform = Transform3D(0, 0, -0.49999997, 0, 0.5, 0, 0.49999997, 0, 0, 0.003140211, 2.012727, 0)
 
@@ -464,6 +471,36 @@ transform = Transform3D(0.57557, 0, 0, 0, 0.57557, 0, 0, 0, 1, -3.3154407, 2.455
 
 [node name="Bush_1_F_Color13" parent="Enviro" unique_id=1572658052 instance=ExtResource("24_w7j6x")]
 transform = Transform3D(0.31782082, 0, 0.4175017, 0, 0.4765585, 0, -0.29748434, 0, 0.44604284, -3.1449704, 2.1917262, -2.1993752)
+
+[node name="fishing_tacklebox2" parent="." unique_id=1783140804 instance=ExtResource("24_844n7")]
+transform = Transform3D(0.40858865, 0, 0, 0, 0.48371482, 0, 0, 0, 0.41851103, 0.34385663, 2.0321217, -0.74997616)
+
+[node name="fishing_floater2" parent="." unique_id=2133328323 instance=ExtResource("25_er007")]
+transform = Transform3D(0.2671643, 0.103092186, 0, -0.11087618, 0.2484082, 0, 0, 0, 0.2728123, 0.5247916, 2.1191268, -0.54166365)
+
+[node name="BGM" type="AudioStreamPlayer" parent="." unique_id=2063213957]
+unique_name_in_owner = true
+stream = ExtResource("26_er007")
+volume_db = -15.0
+
+[node name="CatchSFX" type="AudioStreamPlayer" parent="." unique_id=740865461]
+unique_name_in_owner = true
+stream = ExtResource("27_u6pdb")
+volume_db = -10.0
+
+[node name="HitSFX" type="AudioStreamPlayer" parent="." unique_id=1099263511]
+unique_name_in_owner = true
+stream = ExtResource("28_sojfe")
+volume_db = -10.0
+
+[node name="MissSFX" type="AudioStreamPlayer" parent="." unique_id=1832984124]
+unique_name_in_owner = true
+stream = ExtResource("27_tqlhj")
+volume_db = -10.0
+
+[node name="Timer" type="AudioStreamPlayer" parent="." unique_id=452595099]
+unique_name_in_owner = true
+stream = ExtResource("30_sojfe")
 
 [connection signal="area_entered" from="Tally" to="." method="_on_tally_area_entered"]
 [connection signal="area_exited" from="Tally" to="." method="_on_tally_area_exited"]

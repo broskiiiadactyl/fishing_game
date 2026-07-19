@@ -5,6 +5,10 @@
 [ext_resource type="PackedScene" uid="uid://cjikpfloycq7l" path="res://Assets/Fish/fish_wizard.glb" id="3_484qd"]
 [ext_resource type="PackedScene" uid="uid://dcj1gainnmdka" path="res://Assets/Fish/fish_knight.glb" id="4_4wiv7"]
 [ext_resource type="PackedScene" uid="uid://d2nf54y02sxe5" path="res://Assets/Fish/fish_gift.glb" id="5_ys2mm"]
+[ext_resource type="PackedScene" uid="uid://dufgwefy46f4u" path="res://Assets/Fish/fish_car.glb" id="6_4wiv7"]
+[ext_resource type="PackedScene" uid="uid://wiflo7wwsn8i" path="res://Assets/Fish/fish_fishring.glb" id="7_aqvmb"]
+[ext_resource type="PackedScene" uid="uid://bx84grvq24kd8" path="res://Assets/Fish/fish_rich.glb" id="8_rfsjm"]
+[ext_resource type="PackedScene" uid="uid://b25nnj4cbsnki" path="res://Assets/Fish/fish_skull.glb" id="9_rfsjm"]
 
 [sub_resource type="BoxShape3D" id="BoxShape3D_484qd"]
 size = Vector3(1, 0.44592285, 0.56829834)
@@ -25,6 +29,23 @@ unique_name_in_owner = true
 visible = false
 
 [node name="Gift" parent="." unique_id=787420640 instance=ExtResource("5_ys2mm")]
+unique_name_in_owner = true
+visible = false
+
+[node name="Truck" parent="." unique_id=2115984449 instance=ExtResource("6_4wiv7")]
+unique_name_in_owner = true
+visible = false
+
+[node name="Keys" parent="." unique_id=417931115 instance=ExtResource("7_aqvmb")]
+unique_name_in_owner = true
+transform = Transform3D(-1, 0, 8.742278e-08, 6.181724e-08, 0.70710677, 0.70710677, -6.181724e-08, 0.70710677, -0.70710677, 0, 0, 0)
+visible = false
+
+[node name="Rich" parent="." unique_id=1966336909 instance=ExtResource("8_rfsjm")]
+unique_name_in_owner = true
+visible = false
+
+[node name="Skull" parent="." unique_id=163997534 instance=ExtResource("9_rfsjm")]
 unique_name_in_owner = true
 visible = false
 

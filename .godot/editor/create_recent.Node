@@ -1,3 +1,5 @@
+AudioStreamPlayer
+BoneAttachment3D
 Node3D
 Label3D
 Marker3D
@@ -11,4 +13,3 @@ CollisionShape3D
 AnimationPlayer
 Label
 Node
-StaticBody3D
