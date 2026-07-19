@@ -7,7 +7,7 @@ var difficulty : float = 1.0
 var direction : float = 1.0
 var speed_mult : float = 0.05
 var count : int = 3
-var lives : int = 3
+var done = false
 
 enum gamestate {START, BOBBER, FISHING, SCORE, LOSE}
 var active_state = gamestate.START
@@ -15,21 +15,32 @@ var active_state = gamestate.START
 @onready var fishbox := %Fishbox
 @onready var bobber := %Bobber
 @onready var spawner := %FishSpawner
+@onready var timer := %LevelTime
 
 @onready var intro : Label = %Intro
 @onready var phrases : Label = %Phrases
+@onready var score_lab : Label = %ScoreLabel
+@onready var score_num : Label = %ScoreNum
+@onready var timer_lab : Label = %TimerLabel
+@onready var timeout_lab : Label = %Timeout
 
 # Called when the node enters the scene tree for the first time.
 func _ready() -> void:
 	fishbox.visible = vis
 	intro.visible = not vis
+	score_lab.visible = false
+	score_num.visible = false
+	timer_lab.visible = false
+	timeout_lab.visible = false
 
 func _physics_process(_delta: float) -> void:
 	match active_state:
 		gamestate.START:
-			intro.visible = true
+			done = false
 		gamestate.BOBBER:
-			if not vis:
+			if done:
+				set_active(gamestate.SCORE)
+			elif not vis:
 				bobber.init_target()
 				vis = true
 		gamestate.FISHING:
@@ -38,6 +49,8 @@ func _physics_process(_delta: float) -> void:
 				count = 3
 				vis = true
 			if count <= 0:
+				add_fish(difficulty)
+				play_phrase(str(difficulty))
 				vis = false
 				set_active(gamestate.BOBBER)
 			fishbox.counter.text = str(count)
@@ -45,6 +58,9 @@ func _physics_process(_delta: float) -> void:
 			pass
 		gamestate.LOSE:
 			pass
+	
+	if timer_lab.visible == true:
+		timer_lab.text = str(int(timer.time_left))
 
 func set_active(state) -> void:
 	match state:
@@ -55,20 +71,34 @@ func set_active(state) -> void:
 			fishbox.visible = false
 			bobber.visible = false
 			intro.visible = true
+			score_lab.visible = false
+			score_num.visible = false
+			timer_lab.visible = false
+			timeout_lab.visible = false
 		gamestate.BOBBER:
 			active_state = gamestate.BOBBER
 			fishbox.process_mode = Node.PROCESS_MODE_DISABLED
 			bobber.process_mode = Node.PROCESS_MODE_ALWAYS
+			bobber.arrow.visible = true
 			fishbox.visible = false
 			bobber.visible = true
 			intro.visible = false
+			score_lab.visible = true
+			score_num.visible = true
+			timer_lab.visible = true
+			timeout_lab.visible = false
 		gamestate.FISHING:
 			active_state = gamestate.FISHING
 			fishbox.process_mode = Node.PROCESS_MODE_ALWAYS
-			bobber.process_mode = Node.PROCESS_MODE_DISABLED
+			bobber.process_mode = Node.PROCESS_MODE_ALWAYS
+			bobber.arrow.visible = false
 			fishbox.visible = true
-			bobber.visible = false
+			bobber.visible = true
 			intro.visible = false
+			score_lab.visible = true
+			score_num.visible = true
+			timer_lab.visible = true
+			timeout_lab.visible = false
 		gamestate.SCORE:
 			active_state = gamestate.SCORE
 			fishbox.process_mode = Node.PROCESS_MODE_DISABLED
@@ -76,6 +106,10 @@ func set_active(state) -> void:
 			fishbox.visible = false
 			bobber.visible = false
 			intro.visible = false
+			score_lab.visible = true
+			score_num.visible = true
+			timer_lab.visible = true
+			timeout_lab.visible = true
 		gamestate.LOSE:
 			active_state = gamestate.LOSE
 			fishbox.process_mode = Node.PROCESS_MODE_DISABLED
@@ -83,6 +117,10 @@ func set_active(state) -> void:
 			fishbox.visible = false
 			bobber.visible = false
 			intro.visible = false
+			score_lab.visible = false
+			score_num.visible = false
+			timer_lab.visible = false
+			timeout_lab.visible = false
 	pass
 
 
@@ -92,18 +130,17 @@ func _unhandled_input(event: InputEvent) -> void:
 			gamestate.START:
 				print("start")
 				set_active(gamestate.BOBBER)
+				timer.start()
 			gamestate.BOBBER:
 				var check = bobber.check_target()
 				if check:
 					print("check: ", check)
 					difficulty = check
-					bobber.stop()
 					set_active(gamestate.FISHING)
 					vis = false
 			gamestate.FISHING:
 				if fishbox.check_target():
 					count -= 1
-					add_fish()
 					fishbox.randomize_target()
 				else:
 					miss()
@@ -115,20 +152,18 @@ func _unhandled_input(event: InputEvent) -> void:
 	elif event.is_action_pressed("Reset"):
 		get_tree().reload_current_scene()
 
-func add_fish() -> void:
+func add_fish(size : float) -> void:
 	fish += 1
+	score += size
+	score_num.text = str(score)
+	spawner.spawn_size = size
 	spawner.spawn_count = 1
 	spawner.spawn_objects()
-	spawner.global_position.y += .25
+	spawner.global_position.y += (size * .25)
 
 func miss() -> void:
-	if lives <= 0:
-		set_active(gamestate.START)
-		vis = false
-	else:
-		play_phrase("miss")
-		set_active(gamestate.BOBBER)
-		lives -= 1
+	play_phrase("miss")
+	set_active(gamestate.BOBBER)
 
 func play_phrase(phrase : String) -> void:
 	match phrase:
@@ -137,12 +172,21 @@ func play_phrase(phrase : String) -> void:
 			phrases.visible = true
 			await get_tree().create_timer(1.0).timeout
 			phrases.visible = false
-		"small":
-			pass
-		"med":
-			pass
-		"large":
-			pass
+		"1.0":
+			phrases.text = "OK"
+			phrases.visible = true
+			await get_tree().create_timer(1.0).timeout
+			phrases.visible = false
+		"2.0":
+			phrases.text = "Nice!"
+			phrases.visible = true
+			await get_tree().create_timer(1.0).timeout
+			phrases.visible = false
+		"3.0":
+			phrases.text = "YUGE!!"
+			phrases.visible = true
+			await get_tree().create_timer(1.0).timeout
+			phrases.visible = false
 		_:
 			pass
 
@@ -160,3 +204,7 @@ func reset() -> void:
 	#clear score
 	#clear fish
 	pass
+
+
+func _on_level_time_timeout() -> void:
+	done = true

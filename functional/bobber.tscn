@@ -2,9 +2,9 @@
 
 [ext_resource type="Texture2D" uid="uid://cwm534278ndsf" path="res://Assets/Random/button_square_wide_highlight.svg" id="1_7rxri"]
 [ext_resource type="Script" uid="uid://bo6me4ojr4787" path="res://functional/bobber.gd" id="1_vq721"]
-[ext_resource type="Texture2D" uid="uid://c6uypwbd8lune" path="res://Assets/Random/circle_rings_c.png" id="2_vq721"]
 [ext_resource type="PackedScene" uid="uid://b0iyyky2guk47" path="res://Assets/Random/fishing_floater.gltf" id="3_frc0s"]
 [ext_resource type="Script" uid="uid://yskm4va31a4w" path="res://functional/target_1.gd" id="3_wmcsg"]
+[ext_resource type="Texture2D" uid="uid://snw8syv2wq57" path="res://Assets/Random/window_h.png" id="4_wmcsg"]
 [ext_resource type="Script" uid="uid://dme7le7g0n5sy" path="res://functional/target_2.gd" id="5_dukas"]
 [ext_resource type="Script" uid="uid://bxman6t78bk28" path="res://functional/target_3.gd" id="6_aqg7c"]
 
@@ -21,7 +21,7 @@ size = Vector3(8, 0.5, 1)
 [sub_resource type="StandardMaterial3D" id="StandardMaterial3D_mnbj8"]
 transparency = 1
 albedo_color = Color(3.3691526e-07, 0.15448049, 0.42231467, 1)
-albedo_texture = ExtResource("2_vq721")
+albedo_texture = ExtResource("4_wmcsg")
 uv1_scale = Vector3(2.59, 2.59, 2.59)
 uv1_offset = Vector3(0.065, -0.18, 0)
 texture_repeat = false
@@ -119,8 +119,4 @@ shape = SubResource("BoxShape3D_arisb")
 [node name="SpawnTimer" type="Timer" parent="." unique_id=475137494]
 unique_name_in_owner = true
 
-[node name="CullTimer" type="Timer" parent="." unique_id=1594917280]
-unique_name_in_owner = true
-
 [connection signal="timeout" from="SpawnTimer" to="." method="_on_spawn_timer_timeout"]
-[connection signal="timeout" from="CullTimer" to="." method="_on_cull_timer_timeout"]

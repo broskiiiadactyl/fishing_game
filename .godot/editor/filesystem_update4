@@ -7,3 +7,7 @@ res://functional/target_3.gd
 res://Main/main2.gd
 res://functional/fishbox.gd
 res://functional/fishbox.tscn
+res://functional/spawner.gd
+res://fish.tscn
+res://functional/fish.tscn
+res://functional/fish.gd

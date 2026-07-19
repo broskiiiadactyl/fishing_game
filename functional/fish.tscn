@@ -1,0 +1,9 @@
+[gd_scene format=3 uid="uid://dms8qdggvfo84"]
+
+[ext_resource type="Script" uid="uid://cykjcn6abkukk" path="res://functional/fish.gd" id="1_xu20i"]
+[ext_resource type="PackedScene" uid="uid://b6a4n6crny4kk" path="res://Assets/Fish/fish.fbx" id="2_l3g6t"]
+
+[node name="Fish" type="Node3D" unique_id=1261320118]
+script = ExtResource("1_xu20i")
+
+[node name="fish" parent="." unique_id=1691067368 instance=ExtResource("2_l3g6t")]

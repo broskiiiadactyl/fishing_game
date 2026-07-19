@@ -10,6 +10,7 @@ extends Node3D
 @export var use_random_offset := false
 @export var spawn_range := Vector3(0,0,0)
 @export var spawn_timer := 0.0
+@export var spawn_size := 1.0
 
 func _ready() -> void:
 	spawn_objects()
@@ -40,6 +41,7 @@ func spawn_objects() -> void:
 		get_parent().add_child(instance)
 		instance.global_position = pos
 		instance.rotation.y = self.rotation.y
+		instance.scale *= spawn_size
 		
 func wait(seconds: float) -> void:
 	await get_tree().create_timer(seconds).timeout

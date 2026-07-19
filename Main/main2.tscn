@@ -2,8 +2,9 @@
 
 [ext_resource type="Script" uid="uid://bf3yywq3x0hyn" path="res://Main/main2.gd" id="1_mnbj8"]
 [ext_resource type="Texture2D" uid="uid://dgli1imr6eaj" path="res://Assets/Skyboxes/skybox-alien.png" id="2_3wjc4"]
+[ext_resource type="FontFile" uid="uid://cm15q1gougcsw" path="res://Assets/Random/Kenney Blocks.ttf" id="3_3wjc4"]
+[ext_resource type="PackedScene" uid="uid://dms8qdggvfo84" path="res://functional/fish.tscn" id="4_mnbj8"]
 [ext_resource type="PackedScene" uid="uid://k3qhprlnca6m" path="res://functional/spawner.tscn" id="5_tha2k"]
-[ext_resource type="PackedScene" uid="uid://b6a4n6crny4kk" path="res://Assets/Fish/fish.fbx" id="6_uo6lo"]
 [ext_resource type="PackedScene" uid="uid://dwene38xdndcn" path="res://functional/fisher.tscn" id="7_2tca2"]
 [ext_resource type="PackedScene" uid="uid://bl3bxeyhad5sa" path="res://functional/fishbox.tscn" id="7_ewly5"]
 [ext_resource type="PackedScene" uid="uid://c6lj7q0xa5qr7" path="res://Assets/Random/club-red.glb" id="8_3u84q"]
@@ -27,11 +28,19 @@ font_color = Color(0, 0, 0, 1)
 font_size = 48
 font_color = Color(0, 0, 0, 1)
 
+[sub_resource type="LabelSettings" id="LabelSettings_4a30g"]
+font = ExtResource("3_3wjc4")
+font_size = 24
+font_color = Color(0, 0, 0, 1)
+
 [sub_resource type="StandardMaterial3D" id="StandardMaterial3D_eunhr"]
 albedo_color = Color(0.15187025, 0.41848153, 0.60899806, 1)
 
 [sub_resource type="StandardMaterial3D" id="StandardMaterial3D_k3v36"]
 albedo_color = Color(0.3573012, 0.4823364, 0.19775409, 1)
+
+[sub_resource type="BoxShape3D" id="BoxShape3D_mnbj8"]
+size = Vector3(12.049072, 0.21191406, 1)
 
 [node name="Main" type="Node3D" unique_id=354773583]
 script = ExtResource("1_mnbj8")
@@ -47,6 +56,7 @@ sky_mode = 2
 [node name="PhrasesTimer" type="Timer" parent="." unique_id=1389536808]
 
 [node name="Camera3D" type="Camera3D" parent="." unique_id=768908120]
+unique_name_in_owner = true
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 3.1633847, 5)
 visible = false
 projection = 1
@@ -90,6 +100,56 @@ label_settings = SubResource("LabelSettings_rj11h")
 horizontal_alignment = 1
 vertical_alignment = 1
 
+[node name="Timeout" type="Label" parent="Camera3D/UI" unique_id=555539949]
+unique_name_in_owner = true
+visible = false
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -296.0
+offset_top = -107.5
+offset_right = 296.0
+offset_bottom = 107.5
+grow_horizontal = 2
+grow_vertical = 2
+text = "TIME'S UP!"
+label_settings = SubResource("LabelSettings_rj11h")
+horizontal_alignment = 1
+vertical_alignment = 1
+
+[node name="ScoreLabel" type="Label" parent="Camera3D/UI" unique_id=1982827013]
+unique_name_in_owner = true
+visible = false
+layout_mode = 0
+offset_left = 363.0
+offset_right = 471.0
+offset_bottom = 36.0
+text = "SCORE: "
+label_settings = SubResource("LabelSettings_4a30g")
+
+[node name="ScoreNum" type="Label" parent="Camera3D/UI" unique_id=1218443104]
+unique_name_in_owner = true
+visible = false
+layout_mode = 0
+offset_left = 469.0
+offset_right = 529.0
+offset_bottom = 36.0
+text = "0"
+label_settings = SubResource("LabelSettings_4a30g")
+
+[node name="TimerLabel" type="Label" parent="Camera3D/UI" unique_id=2005412946]
+unique_name_in_owner = true
+visible = false
+layout_mode = 0
+offset_left = 635.0
+offset_right = 677.0
+offset_bottom = 36.0
+text = "00"
+label_settings = SubResource("LabelSettings_4a30g")
+
 [node name="CSGBox3D" type="CSGBox3D" parent="." unique_id=1206046566]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.27057076, 1.1860487, 0)
 size = Vector3(26.149414, 1, 2.5)
@@ -103,7 +163,7 @@ material = SubResource("StandardMaterial3D_k3v36")
 [node name="FishSpawner" parent="." unique_id=1093584567 instance=ExtResource("5_tha2k")]
 unique_name_in_owner = true
 transform = Transform3D(-4.371139e-08, 0, 1, 0, 1, 0, -1, 0, -4.371139e-08, 1.3363872, 2.0717578, 0)
-spawn_scene = ExtResource("6_uo6lo")
+spawn_scene = ExtResource("4_mnbj8")
 spawn_count = 0
 spawn_range = Vector3(0.1, 0.1, 0.1)
 
@@ -124,3 +184,16 @@ unique_name_in_owner = true
 process_mode = 4
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 1.5027612, 0.8729248)
 visible = false
+
+[node name="Tally" type="Area3D" parent="." unique_id=870180606]
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="Tally" unique_id=2003822077]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 1.7767484, 0)
+shape = SubResource("BoxShape3D_mnbj8")
+
+[node name="LevelTime" type="Timer" parent="." unique_id=2063393876]
+unique_name_in_owner = true
+wait_time = 60.0
+one_shot = true
+
+[connection signal="timeout" from="LevelTime" to="." method="_on_level_time_timeout"]

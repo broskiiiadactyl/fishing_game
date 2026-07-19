@@ -29,7 +29,7 @@ func _ready() -> void:
 	target3.visible = false	
 	spawner = 0
 
-func _physics_process(delta: float) -> void:
+func _physics_process(_delta: float) -> void:
 	track_marker()
 	
 	if target1.on:
@@ -37,17 +37,17 @@ func _physics_process(delta: float) -> void:
 			print(true)
 			cull_fish(target1)
 		else:
-			target1.global_position.x += target1.difficulty/50
+			target1.global_position.x += target1.difficulty/25
 	if target2.on:
 		if target2.global_position.x >= target_pos.x:
 			cull_fish(target2)
 		else:
-			target2.global_position.x += target2.difficulty/50
+			target2.global_position.x += target2.difficulty/25
 	if target3.on:
 		if target3.global_position.x >= target_pos.x:
 			cull_fish(target3)
 		else:
-			target3.global_position.x += target3.difficulty/50
+			target3.global_position.x += target3.difficulty/25
 
 func init_target() -> bool:
 	spawn_timer.start()
@@ -95,6 +95,7 @@ func check_target() -> float:
 	var bodies = arrow_area.get_overlapping_bodies()
 	for body in bodies:
 		if body.is_in_group("target"):
+			cull_fish(body)
 			return body.difficulty
 	return 0.0
 
@@ -106,11 +107,6 @@ func set_difficulty() -> float:
 	elif roll > 50:
 		return 2.0
 	return 1.0
-
-func stop() -> void:
-	cull_fish(target1)
-	cull_fish(target2)
-	cull_fish(target3)
 
 func _on_spawn_timer_timeout() -> void:
 	spawn_fish(spawner)
