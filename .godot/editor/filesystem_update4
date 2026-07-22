@@ -1,13 +1,1 @@
-res://Main/main2.gd
 res://Main/main2.tscn
-res://functional/fish.gd
-res://functional/FisherRogue.tscn
-res://functional/fish.tscn
-res://functional/fishbox.gd
-res://functional/bobber.gd
-res://functional/spawner.gd
-res://functional/fish_area.gd
-res://functional/bobber.tscn
-res://functional/fisher_rogue.gd
-res://functional/fishbox.tscn
-res://functional/rock.tscn
